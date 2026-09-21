@@ -19,7 +19,12 @@
   --doux: #5C6B70;
   --filet: #D3DCDA;
   --t0: #B07A24; --t1: #2E7A58; --t2: #9E3838; --t3: #3F5E8C; --t4: #7A4D7E; --t5: #2F7D86;
+  /* teintes lisibles sur le panneau sombre de l'edition du jour */
+  --v0: #E6B55C; --v1: #6CC99A; --v2: #EE8783; --v3: #9DB8E4; --v4: #CC9ACF; --v5: #79CDD5;
   --neutre: #7B8A8E;
+  --vedette: #0F3A47;
+  --vedette-texte: #FFFFFF;
+  --vedette-doux: #B6CFD5;
   --sans: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --theme: var(--encre);
@@ -30,6 +35,7 @@
     --papier: #0E1D22; --surface: #132A31; --texte: #E3ECEA; --doux: #95A7AB; --filet: #274149;
     --t0: #DDA94D; --t1: #62B98C; --t2: #DC7672; --t3: #92AEDB; --t4: #C391C7; --t5: #6CC2CB;
     --neutre: #95A7AB;
+    --vedette: #17414D;
   }
 }
 
@@ -42,6 +48,8 @@ body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 a { color: inherit; }
+button { font: inherit; }
+[hidden] { display: none !important; }
 :focus-visible { outline: 2px solid var(--encre-vive); outline-offset: 2px; border-radius: 2px; }
 
 /* ---------- barre ---------- */
@@ -52,10 +60,13 @@ a { color: inherit; }
 }
 @media (prefers-color-scheme: dark) { .barre { background: #0A2A33; } }
 .barre-in {
-  max-width: 1160px; margin: 0 auto; padding: .7rem 1.25rem;
+  max-width: 1160px; margin: 0 auto; padding: .7rem 1.25rem; min-height: 3.4rem;
   display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
 }
-.marque { font-weight: 600; font-size: 1.05rem; letter-spacing: .01em; margin-right: auto; order: 0; }
+.marque {
+  font-weight: 600; font-size: 1.05rem; letter-spacing: .01em;
+  margin-right: auto; order: 0; text-decoration: none;
+}
 .choix { order: 1; font-size: .9rem; color: #BCD6DC; display: flex; align-items: center; gap: .45rem; }
 #pdf { order: 2; }
 select {
@@ -72,11 +83,151 @@ select option { color: #16242A; background: #fff; }
 .bouton:hover { background: #E6F0F2; }
 .bouton[aria-disabled="true"] { opacity: .45; pointer-events: none; }
 
-/* ---------- une ---------- */
 .page { max-width: 1160px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+
+/* =================================================================
+   ACCUEIL
+   ================================================================= */
+.heros { position: relative; background: #0F3A47; color: #fff; overflow: hidden; }
+.heros-image { position: absolute; inset: 0; }
+.heros-image .photo {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block;
+  filter: saturate(.9); animation: recul 2.6s cubic-bezier(.2,.6,.2,1) both;
+}
+@keyframes recul { from { transform: scale(1.07); } to { transform: scale(1); } }
+.heros-image::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9,38,47,.95) 0%, rgba(11,46,57,.88) 32%, rgba(15,58,71,.5) 60%, rgba(15,58,71,.12) 100%),
+    linear-gradient(0deg, rgba(9,38,47,.6) 0%, rgba(9,38,47,0) 38%);
+}
+.heros.sans-photo .heros-image { display: none; }
+.heros-in {
+  position: relative; max-width: 1160px; margin: 0 auto;
+  padding: 5.2rem 1.25rem 8.6rem; min-height: 36rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.heros-texte-bloc { max-width: 37rem; }
+.heros-salut { margin: 0 0 1rem; font: italic 400 1.12rem/1.4 var(--serif); color: #A9CDD6; }
+.heros-titre {
+  margin: 0; font: 600 clamp(2.2rem, 3.7vw, 3.25rem)/1.08 var(--sans);
+  letter-spacing: -.015em; text-wrap: balance;
+}
+.heros-actions { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 2rem; }
+.heros-actions .bouton-plein { background: #F2C46B; color: #1B1405; }
+.heros-actions .bouton-plein:hover { background: #F6D48E; }
+.heros-actions .bouton-ligne { border-color: rgba(255,255,255,.45); color: #fff; background: transparent; cursor: pointer; }
+.heros-actions .bouton-ligne:hover { background: rgba(255,255,255,.08); }
+.heros-faits { margin: 1.6rem 0 0; font-size: 1rem; color: #A9CDD6; }
+.heros-faits strong { color: #fff; font-weight: 600; }
+
+
+.accueil-corps { position: relative; }
+
+/* --- edition du jour, posee sur le bas du bandeau --- */
+.vedette {
+  position: relative; z-index: 2; margin-top: -5.6rem;
+  background: var(--surface); color: var(--texte);
+  border-radius: 6px; border-top: 5px solid #D9973A;
+  box-shadow: 0 1px 0 rgba(8,30,38,.06), 0 18px 40px -18px rgba(8,30,38,.45);
+  padding: 1.7rem 2rem 1.8rem;
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.1rem 3rem;
+  grid-template-areas: "haut haut" "texte repart" "actions repart";
+}
+.vedette.calme { border-top-color: var(--filet); }
+.vedette-haut { grid-area: haut; display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.pastille {
+  font: 600 .9rem/1 var(--sans); padding: .42rem .7rem; border-radius: 3px;
+  background: #F2C46B; color: #1B1405;
+  display: inline-flex; align-items: center; gap: .45rem;
+}
+.pastille::before {
+  content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor;
+  animation: pouls 2.4s ease-in-out infinite;
+}
+@keyframes pouls { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+.calme .pastille { background: var(--papier); color: var(--doux); border: 1px solid var(--filet); }
+.calme .pastille::before { animation: none; }
+.vedette-heure { font-size: 1.02rem; color: var(--doux); }
+.vedette-gauche { grid-area: texte; min-width: 0; }
+.vedette-actions { grid-area: actions; min-width: 0; }
+.vedette-titre { margin: 0 0 .8rem; font: 600 clamp(1.55rem, 3vw, 2.1rem)/1.12 var(--sans); color: var(--encre); }
+.extrait { margin: 0; font: 400 1.12rem/1.62 var(--serif); color: var(--texte); max-width: 52ch; }
+.extrait.discret { color: var(--doux); margin-top: .5rem; font-size: 1.02rem; }
+.actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .2rem; }
+.bouton-plein, .bouton-ligne {
+  font: 600 1rem var(--sans); text-decoration: none; border-radius: 4px; padding: .62rem 1.05rem;
+  display: inline-flex; align-items: center; border: 1px solid transparent;
+}
+.bouton-plein { background: var(--encre); color: #fff; }
+.bouton-plein:hover { background: var(--encre-vive); }
+.bouton-ligne { border-color: var(--filet); color: var(--texte); background: var(--surface); }
+.bouton-ligne:hover { border-color: var(--encre); }
+@media (prefers-color-scheme: dark) { .vedette .bouton-plein { color: #0E1D22; } }
+.vedette-droite { grid-area: repart; min-width: 0; align-self: end; }
+.repartition { display: flex; height: .8rem; border-radius: 2px; overflow: hidden; gap: 2px; background: var(--papier); }
+.repartition span { display: block; transform-origin: left center; animation: pousse .7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes pousse { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.legende { list-style: none; margin: .9rem 0 0; padding: 0; display: grid; gap: .35rem; }
+.legende li { display: flex; align-items: baseline; gap: .55rem; font-size: 1rem; }
+.legende li.zero { opacity: .45; }
+.legende .pt { width: .7rem; height: .7rem; border-radius: 1px; flex: 0 0 auto; transform: translateY(.05rem); }
+.legende .n { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--doux); }
+.autres { margin: 1rem 0 0; font-size: .95rem; color: var(--doux); }
+.autres a { color: var(--encre); font-weight: 600; }
+
+/* --- archive par jour --- */
+.archive { margin-top: 3.4rem; scroll-margin-top: 5rem; }
+.archive-tete {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-bottom: .9rem; border-bottom: 1px solid var(--filet); margin-bottom: 1.2rem;
+}
+.archive-tete h2 { margin: 0; font: 600 1.45rem/1.2 var(--sans); }
+.mois-nav { display: flex; align-items: center; gap: .4rem; }
+.mois-nav span { min-width: 9.5rem; text-align: center; font: 500 1.05rem var(--sans); }
+.mois-nav button {
+  appearance: none; cursor: pointer; width: 2.2rem; height: 2.2rem; border-radius: 4px;
+  border: 1px solid var(--filet); background: var(--surface); color: var(--texte);
+  font-size: 1.2rem; line-height: 1; display: grid; place-items: center;
+}
+.mois-nav button:hover:not(:disabled) { border-color: var(--encre); }
+.mois-nav button:disabled { opacity: .35; cursor: default; }
+.jours {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); gap: .75rem;
+}
+.jour-case {
+  background: var(--surface); border-radius: 4px; padding: 1rem 1.05rem 1.05rem;
+  display: grid; gap: .75rem; border: 1px solid transparent;
+}
+.jour-case.est-aujourdhui { border-color: #D9973A; box-shadow: inset 0 3px 0 #D9973A; }
+.jc-date { display: flex; align-items: baseline; gap: .6rem; }
+.jc-num { font: 600 2.6rem/.9 var(--sans); color: var(--encre); letter-spacing: -.02em; font-variant-numeric: lining-nums; }
+.jc-jour { font-size: 1.02rem; color: var(--doux); }
+.jc-jour strong { display: block; color: #B07A24; font-weight: 600; font-size: .9rem; }
+.jc-barre { display: flex; height: .4rem; gap: 2px; border-radius: 1px; overflow: hidden; background: var(--papier); }
+.jc-barre span { display: block; }
+.jc-bas { display: flex; align-items: center; justify-content: space-between; gap: .6rem; flex-wrap: wrap; }
+.jc-editions { display: flex; gap: .35rem; flex-wrap: wrap; }
+.jc-editions a {
+  font: 600 .92rem var(--sans); text-decoration: none; color: var(--encre);
+  border: 1px solid var(--filet); border-radius: 3px; padding: .28rem .55rem;
+}
+.jc-editions a:hover { border-color: var(--encre); background: color-mix(in srgb, var(--encre) 6%, transparent); }
+.jc-total { font-size: .9rem; color: var(--doux); font-variant-numeric: tabular-nums; }
+.vide-mois { color: var(--doux); font: 400 1.05rem/1.6 var(--serif); padding: 1rem 0; }
+
+/* =================================================================
+   RAPPORT
+   ================================================================= */
+.retour {
+  display: inline-block; margin-top: 1.4rem; font: 500 1rem var(--sans);
+  color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--filet);
+}
+.retour:hover { border-bottom-color: var(--encre); }
 .une {
   display: flex; align-items: flex-end; gap: 1.25rem;
-  padding: 2.4rem 0 1.8rem; border-bottom: 1px solid var(--filet);
+  padding: 1.6rem 0 1.8rem; border-bottom: 1px solid var(--filet);
 }
 .jour {
   font: 600 clamp(5.5rem, 15vw, 9.5rem)/.78 var(--sans);
@@ -88,7 +239,6 @@ select option { color: #16242A; background: #fff; }
 .sous { margin: .35rem 0 0; font-size: 1.05rem; color: var(--doux); }
 .resume { margin: .7rem 0 0; font: 400 1.05rem/1.45 var(--serif); color: var(--texte); max-width: 46ch; }
 
-/* ---------- corps : onglets + lecture ---------- */
 .corps { display: grid; grid-template-columns: 15.5rem minmax(0, 1fr); gap: 3rem; padding-top: 2rem; }
 .onglets {
   position: sticky; top: calc(4.2rem + env(safe-area-inset-top, 0px));
@@ -127,7 +277,6 @@ select option { color: #16242A; background: #fff; }
 }
 .theme h2 { margin: 0; font: 600 clamp(1.55rem, 2.6vw, 1.9rem)/1.15 var(--sans); color: var(--texte); }
 .theme .compte { color: var(--doux); font-size: .95rem; }
-
 .synthese {
   font: 400 1.14rem/1.72 var(--serif); margin: 0 0 1.3rem; max-width: 66ch;
   hyphens: auto; -webkit-hyphens: auto;
@@ -142,7 +291,6 @@ select option { color: #16242A; background: #fff; }
 }
 .analyse strong { font: 600 1rem var(--sans); color: var(--texte); margin-right: .3rem; }
 .indispo { font: italic 400 1.02rem/1.6 var(--serif); color: var(--doux); margin: 0 0 1.3rem; }
-
 .sources { list-style: none; margin: 0; padding: 0; max-width: 72ch; }
 .sources li {
   display: grid; grid-template-columns: 2.4rem 1fr; gap: .2rem;
@@ -155,10 +303,7 @@ select option { color: #16242A; background: #fff; }
 .sources a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .sources .meta { display: block; color: var(--doux); font-size: .9rem; margin-top: .2rem; }
 
-.message {
-  font: 400 1.1rem/1.6 var(--serif); color: var(--doux);
-  padding: 2rem 0; max-width: 52ch;
-}
+.message { font: 400 1.1rem/1.6 var(--serif); color: var(--doux); padding: 2rem 0; max-width: 52ch; }
 .notes {
   margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--filet);
   color: var(--doux); font-size: .9rem; line-height: 1.6;
@@ -173,7 +318,22 @@ select option { color: #16242A; background: #fff; }
   .choix { order: 2; flex-basis: 100%; }
   .choix select { flex: 1; max-width: none; }
   .page { padding: 0 1rem 2.5rem; }
-  .une { padding: 1.6rem 0 1.3rem; gap: .9rem; }
+
+  .heros-image::after { background: rgba(9,38,47,.8); }
+  .heros-in { min-height: 0; padding: 2.6rem 1rem 5.4rem; }
+  .heros-titre { font-size: 2.15rem; }
+  .heros-texte { font-size: 1.06rem; }
+  .vedette {
+    margin-top: -3.2rem; grid-template-columns: 1fr; padding: 1.3rem 1.15rem 1.4rem; gap: 1.1rem;
+    grid-template-areas: "haut" "texte" "repart" "actions";
+  }
+  .vedette-droite { align-self: start; }
+  .archive { margin-top: 2.4rem; }
+  .jours { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+  .jour-case { padding: .85rem .8rem .9rem; gap: .6rem; }
+  .jc-num { font-size: 2.2rem; }
+
+  .une { padding: 1.2rem 0 1.3rem; gap: .9rem; }
   .corps { display: block; padding-top: 0; }
   .onglets {
     top: 0; padding-top: calc(.7rem + env(safe-area-inset-top, 0px)); z-index: 4;
@@ -190,11 +350,11 @@ select option { color: #16242A; background: #fff; }
   html { scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lecture.bascule, .sources li.vise { animation: none; }
+  .lecture.bascule, .sources li.vise, .repartition span, .pastille::before, .heros-image .photo { animation: none; }
   .onglet::before { transition: none; }
 }
 @media print {
-  .barre, .onglets { display: none; }
+  .barre, .onglets, .retour { display: none; }
   .corps { display: block; }
   body { background: #fff; }
 }
@@ -203,37 +363,79 @@ select option { color: #16242A; background: #fff; }
 <body>
 <header class="barre">
   <div class="barre-in">
-    <span class="marque">Veille stratégique</span>
-    <a id="pdf" class="bouton" href="#" aria-disabled="true" download>Télécharger le PDF</a>
-    <label class="choix" for="edition">Édition <select id="edition" disabled></select></label>
+    <a class="marque" href="#">Veille stratégique</a>
+    <a id="pdf" class="bouton" href="#" aria-disabled="true" download hidden>Télécharger le PDF</a>
+    <label class="choix" for="edition" hidden>Édition <select id="edition"></select></label>
   </div>
 </header>
 
-<main class="page">
-  <section class="une" aria-live="polite">
-    <div class="jour" id="jour" aria-hidden="true"></div>
-    <div class="date-bloc">
-      <p class="mois" id="mois">Chargement…</p>
-      <p class="sous" id="sous"></p>
-      <p class="resume" id="resume"></p>
+<main>
+  <!-- ========== ACCUEIL ========== -->
+  <section id="accueil" hidden>
+    <div class="heros">
+      <div class="heros-image">
+        <img class="photo" src="accueil.jpg" alt="" decoding="async" fetchpriority="high">
+      </div>
+      <div class="heros-in">
+        <div class="heros-texte-bloc">
+          <p class="heros-salut" id="salut"></p>
+          <h1 class="heros-titre">L'actualité qui compte pour vos décisions, synthétisée chaque jour.</h1>
+          <div class="heros-actions">
+            <a class="bouton-plein" id="cta-lire" href="#">Lire l'édition du jour</a>
+            <button type="button" class="bouton-ligne" id="cta-parcourir">Parcourir les éditions</button>
+          </div>
+          <p class="heros-faits" id="heros-faits"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page accueil-corps">
+      <article class="vedette" id="vedette" aria-live="polite"></article>
+      <section class="archive" id="archive" aria-labelledby="archive-titre">
+        <div class="archive-tete">
+          <h2 id="archive-titre">Toutes les éditions</h2>
+          <div class="mois-nav">
+            <button type="button" id="mois-prec" aria-label="Mois précédent">&#8249;</button>
+            <span id="mois-courant" aria-live="polite"></span>
+            <button type="button" id="mois-suiv" aria-label="Mois suivant">&#8250;</button>
+          </div>
+        </div>
+        <ol class="jours" id="jours"></ol>
+      </section>
     </div>
   </section>
 
-  <div class="corps">
-    <nav class="onglets" id="onglets" aria-label="Choisir une thématique"></nav>
-    <div class="lecture" id="lecture"></div>
+  <!-- ========== RAPPORT ========== -->
+  <div id="rapport" class="page" hidden>
+    <a class="retour" href="#">Toutes les éditions</a>
+    <section class="une" aria-live="polite">
+      <div class="jour" id="jour" aria-hidden="true"></div>
+      <div class="date-bloc">
+        <p class="mois" id="mois">Chargement…</p>
+        <p class="sous" id="sous"></p>
+        <p class="resume" id="resume"></p>
+      </div>
+    </section>
+    <div class="corps">
+      <nav class="onglets" id="onglets" aria-label="Choisir une thématique"></nav>
+      <div class="lecture" id="lecture"></div>
+    </div>
+    <footer class="notes" id="notes"></footer>
   </div>
 
-  <footer class="notes" id="notes"></footer>
+  <div class="page"><p class="message" id="etat-global">Chargement des éditions…</p></div>
 </main>
 
 <script>
 (function () {
   "use strict";
 
-  var etat = { index: [], edition: null, theme: null, attendu: null };
+  var etat = { index: [], edition: null, theme: null, attendu: null, mois: null };
   var TOUTES = "toutes";
   var CLE_THEME = "veille.theme";
+  var MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+              "août", "septembre", "octobre", "novembre", "décembre"];
+  var JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 
   function $(id) { return document.getElementById(id); }
   function el(tag, cls, texte) {
@@ -244,19 +446,85 @@ select option { color: #16242A; background: #fff; }
   }
   function lienSur(url) { return /^https?:\/\//i.test(url || "") ? url : null; }
   function pluriel(n, mot) { return n + " " + mot + (n > 1 ? "s" : ""); }
-
+  function majuscule(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function couleur(i) { return "var(--t" + (i % 6) + ")"; }
+  function couleurVive(i) { return "var(--v" + (i % 6) + ")"; }
   function lireStock() { try { return localStorage.getItem(CLE_THEME); } catch (e) { return null; } }
   function ecrireStock(v) { try { localStorage.setItem(CLE_THEME, v); } catch (e) {} }
+  function reduit() { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
 
+  // Date et heure a Alger, quel que soit le fuseau de l'appareil
+  function maintenantAlger() {
+    try {
+      var p = {};
+      new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Algiers", year: "numeric",
+        month: "2-digit", day: "2-digit", hour: "2-digit", hour12: false })
+        .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+      return { iso: p.year + "-" + p.month + "-" + p.day, a: +p.year, m: +p.month, j: +p.day,
+               h: +p.hour % 24 };
+    } catch (e) {
+      var d = new Date();
+      var iso = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+      return { iso: iso, a: d.getFullYear(), m: d.getMonth() + 1, j: d.getDate(), h: d.getHours() };
+    }
+  }
+  function jourSemaine(a, m, j) { return JOURS[new Date(Date.UTC(a, m - 1, j)).getUTCDay()]; }
+
+  // Les entrees d'index anterieures a l'accueil n'ont pas tous les champs
+  function completer(e) {
+    var r = /^(\d{4})-(\d{2})-(\d{2})-(\d{2})h$/.exec(e.id) || [];
+    e.date = e.date || (r[1] + "-" + r[2] + "-" + r[3]);
+    e.heure = e.heure != null ? e.heure : +r[4];
+    e.jour = e.jour || +r[3];
+    e.annee = e.annee || +r[1];
+    e.mois = e.mois || MOIS[+r[2] - 1];
+    e.jour_semaine = e.jour_semaine || jourSemaine(+r[1], +r[2], +r[3]);
+    e.themes = e.themes || [];
+    return e;
+  }
+
+  // ---------- navigation ----------
   function lireAncre() {
-    var p = new URLSearchParams(location.hash.replace(/^#/, ""));
-    return { edition: p.get("edition"), theme: p.get("theme") };
+    var h = location.hash.replace(/^#/, "");
+    if (h.indexOf("=") < 0) return { edition: null, theme: null, brut: h };
+    var p = new URLSearchParams(h);
+    return { edition: p.get("edition"), theme: p.get("theme"), brut: h };
+  }
+  function ancreRapport(id, theme) {
+    var p = new URLSearchParams();
+    p.set("edition", id);
+    if (theme && theme !== TOUTES) p.set("theme", theme);
+    return "#" + p.toString();
   }
   function ecrireAncre() {
-    var p = new URLSearchParams();
-    if (etat.edition) p.set("edition", etat.edition.id);
-    if (etat.theme && etat.theme !== TOUTES) p.set("theme", etat.theme);
-    history.replaceState(null, "", "#" + p.toString());
+    if (etat.edition) history.replaceState(null, "", ancreRapport(etat.edition.id, etat.theme));
+  }
+
+  function aiguiller() {
+    var a = lireAncre();
+    var existe = a.edition && etat.index.some(function (e) { return e.id === a.edition; });
+    if (existe) {
+      montrer("rapport");
+      if (etat.edition && etat.edition.id === a.edition) {
+        if ((a.theme || TOUTES) !== etat.theme) choisir(a.theme || TOUTES, true);
+      } else {
+        ouvrir(a.edition);
+      }
+    } else {
+      montrer("accueil");
+    }
+  }
+
+  function montrer(vue) {
+    var rapport = vue === "rapport";
+    $("accueil").hidden = rapport;
+    $("rapport").hidden = !rapport;
+    $("pdf").hidden = !rapport;
+    document.querySelector(".choix").hidden = !rapport;
+    if (!rapport) {
+      document.title = "Veille stratégique";
+      window.scrollTo(0, 0);
+    }
   }
 
   function charger(src, echec) {
@@ -266,33 +534,237 @@ select option { color: #16242A; background: #fff; }
     document.head.appendChild(s);
   }
 
-  function message(texte) {
-    var l = $("lecture");
-    l.textContent = "";
-    l.appendChild(el("p", "message", texte));
-  }
-
-  // ---------- index des editions ----------
+  // ---------- index ----------
   window.veilleIndex = function (liste) {
-    etat.index = Array.isArray(liste) ? liste : [];
+    etat.index = (Array.isArray(liste) ? liste : []).map(completer);
+    $("etat-global").hidden = true;
     var sel = $("edition");
     sel.textContent = "";
-    if (!etat.index.length) {
-      $("mois").textContent = "Aucun rapport publié";
-      $("sous").textContent = "";
-      message("Le premier rapport apparaîtra ici après le prochain envoi planifié.");
-      return;
-    }
     etat.index.forEach(function (e) {
       var o = el("option", null, e.libelle);
       o.value = e.id;
       sel.appendChild(o);
     });
-    sel.disabled = false;
-    var voulue = lireAncre().edition;
-    var existe = etat.index.some(function (e) { return e.id === voulue; });
-    ouvrir(existe ? voulue : etat.index[0].id);
+    dessinerAccueil();
+    aiguiller();
   };
+
+  // =============================================================
+  // ACCUEIL
+  // =============================================================
+  function repartition(themes, total, vive) {
+    var bar = el("div", "repartition");
+    bar.setAttribute("aria-hidden", "true");
+    themes.forEach(function (t, i) {
+      if (!t.n) return;
+      var s = el("span");
+      s.style.flex = String(t.n);
+      s.style.background = vive ? couleurVive(i) : couleur(i);
+      s.style.animationDelay = (i * 90) + "ms";
+      bar.appendChild(s);
+    });
+    return bar;
+  }
+
+  function dessinerAccueil() {
+    var now = maintenantAlger();
+    $("salut").textContent = (now.h >= 18 || now.h < 5 ? "Bonsoir" : "Bonjour") +
+      ". Nous sommes le " + jourSemaine(now.a, now.m, now.j) + " " + now.j + " " +
+      MOIS[now.m - 1] + " " + now.a + ".";
+
+    var v = $("vedette");
+    v.textContent = "";
+    var cta = $("cta-lire");
+    if (!etat.index.length) {
+      v.className = "vedette calme";
+      v.appendChild(el("p", "vedette-titre", "Aucun rapport publié pour l'instant"));
+      v.appendChild(el("p", "extrait", "Le premier rapport apparaîtra ici après le prochain envoi planifié."));
+      $("jours").textContent = "";
+      document.querySelector(".archive").hidden = true;
+      cta.hidden = true;
+      $("cta-parcourir").hidden = true;
+      $("heros-faits").textContent = "";
+      return;
+    }
+    document.querySelector(".archive").hidden = false;
+
+    var duJour = etat.index.filter(function (e) { return e.date === now.iso; });
+    var aLaUne = duJour.length ? duJour[0] : etat.index[0];
+    var aujourdhui = duJour.length > 0;
+
+    // bandeau : chiffres reels
+    var faits = $("heros-faits");
+    faits.textContent = "";
+    var morceaux = [];
+    if (aLaUne.nb_sources) morceaux.push([aLaUne.nb_sources, " sources surveillées"]);
+    if (aLaUne.themes.length) morceaux.push([aLaUne.themes.length, " thématiques"]);
+    morceaux.push([etat.index.length, etat.index.length > 1 ? " éditions archivées" : " édition archivée"]);
+    morceaux.forEach(function (m, i) {
+      if (i) faits.appendChild(document.createTextNode(i === morceaux.length - 1 ? " et " : ", "));
+      faits.appendChild(el("strong", null, String(m[0])));
+      faits.appendChild(document.createTextNode(m[1]));
+    });
+    faits.appendChild(document.createTextNode("."));
+    cta.textContent = aujourdhui ? "Lire l'édition du jour" : "Lire la dernière édition";
+    cta.href = ancreRapport(aLaUne.id, lireStock());
+
+    // edition du jour
+    v.className = aujourdhui ? "vedette" : "vedette calme";
+    var haut = el("div", "vedette-haut");
+    haut.appendChild(el("span", "pastille", aujourdhui ? "Aujourd'hui" : "Dernière édition"));
+    haut.appendChild(el("span", "vedette-heure", aujourdhui
+      ? "Édition de " + aLaUne.heure + " h"
+      : majuscule(aLaUne.jour_semaine) + " " + aLaUne.jour + " " + aLaUne.mois + ", " + aLaUne.heure + " h"));
+    v.appendChild(haut);
+
+    var g = el("div", "vedette-gauche");
+    var nbThemes = aLaUne.themes.filter(function (t) { return t.n; }).length;
+    g.appendChild(el("p", "vedette-titre", pluriel(aLaUne.total, "article") + " retenu" +
+      (aLaUne.total > 1 ? "s" : "") + (nbThemes ? " dans " + pluriel(nbThemes, "thématique") : "")));
+    if (aLaUne.extrait) g.appendChild(el("p", "extrait", aLaUne.extrait));
+    if (!aujourdhui) g.appendChild(el("p", "extrait discret", "Aucune édition n'a encore été publiée aujourd'hui."));
+    v.appendChild(g);
+
+    var blocActions = el("div", "vedette-actions");
+    var act = el("div", "actions");
+    var lire = el("a", "bouton-plein", "Lire l'édition");
+    lire.href = ancreRapport(aLaUne.id, lireStock());
+    act.appendChild(lire);
+    if (aLaUne.pdf) {
+      var p = el("a", "bouton-ligne", "Télécharger le PDF");
+      p.href = aLaUne.pdf;
+      p.setAttribute("download", "Veille_" + aLaUne.id + ".pdf");
+      act.appendChild(p);
+    }
+    blocActions.appendChild(act);
+    if (duJour.length > 1) {
+      var autres = el("p", "autres", "Autre édition aujourd'hui : ");
+      duJour.slice(1).forEach(function (e, i) {
+        if (i) autres.appendChild(document.createTextNode(", "));
+        var a = el("a", null, e.heure + " h");
+        a.href = ancreRapport(e.id, lireStock());
+        autres.appendChild(a);
+      });
+      blocActions.appendChild(autres);
+    }
+    v.appendChild(blocActions);
+
+    var d = el("div", "vedette-droite");
+    if (aLaUne.themes.length) {
+      d.appendChild(repartition(aLaUne.themes, aLaUne.total, false));
+      var leg = el("ul", "legende");
+      aLaUne.themes.forEach(function (t, i) {
+        var li = el("li", t.n ? null : "zero");
+        var pt = el("span", "pt");
+        pt.style.background = couleur(i);
+        li.appendChild(pt);
+        li.appendChild(el("span", null, t.nom));
+        li.appendChild(el("span", "n", String(t.n)));
+        leg.appendChild(li);
+      });
+      d.appendChild(leg);
+    }
+    v.appendChild(d);
+
+    var mois = [];
+    etat.index.forEach(function (e) {
+      var k = e.date.slice(0, 7);
+      if (mois.indexOf(k) < 0) mois.push(k);
+    });
+    etat.moisDispo = mois;
+    if (!etat.mois || mois.indexOf(etat.mois) < 0) etat.mois = mois[0];
+    dessinerMois();
+  }
+
+  function dessinerMois() {
+    var now = maintenantAlger();
+    var k = etat.mois;
+    var pos = etat.moisDispo.indexOf(k);
+    $("mois-courant").textContent = majuscule(MOIS[+k.slice(5, 7) - 1]) + " " + k.slice(0, 4);
+    $("mois-prec").disabled = pos >= etat.moisDispo.length - 1;
+    $("mois-suiv").disabled = pos <= 0;
+
+    var parJour = {};
+    var ordre = [];
+    etat.index.forEach(function (e) {
+      if (e.date.slice(0, 7) !== k) return;
+      if (!parJour[e.date]) { parJour[e.date] = []; ordre.push(e.date); }
+      parJour[e.date].push(e);
+    });
+
+    var ol = $("jours");
+    ol.textContent = "";
+    if (!ordre.length) {
+      ol.appendChild(el("li", "vide-mois", "Aucune édition ce mois-ci."));
+      return;
+    }
+    ordre.forEach(function (date) {
+      var eds = parJour[date].slice().sort(function (a, b) { return a.heure - b.heure; });
+      var ref = eds[eds.length - 1];
+      var li = el("li", "jour-case" + (date === now.iso ? " est-aujourdhui" : ""));
+
+      var tete = el("div", "jc-date");
+      tete.appendChild(el("span", "jc-num", String(ref.jour)));
+      var js = el("span", "jc-jour");
+      if (date === now.iso) js.appendChild(el("strong", null, "Aujourd'hui"));
+      js.appendChild(document.createTextNode(ref.jour_semaine));
+      tete.appendChild(js);
+      li.appendChild(tete);
+
+      var barre = el("div", "jc-barre");
+      barre.setAttribute("aria-hidden", "true");
+      ref.themes.forEach(function (t, i) {
+        if (!t.n) return;
+        var s = el("span");
+        s.style.flex = String(t.n);
+        s.style.background = couleur(i);
+        barre.appendChild(s);
+      });
+      li.appendChild(barre);
+
+      var bas = el("div", "jc-bas");
+      var liens = el("div", "jc-editions");
+      eds.forEach(function (e) {
+        var a = el("a", null, e.heure + " h");
+        a.href = ancreRapport(e.id, lireStock());
+        a.setAttribute("aria-label", "Lire l'édition du " + e.jour_semaine + " " + e.jour + " " +
+          e.mois + ", " + e.heure + " h");
+        liens.appendChild(a);
+      });
+      bas.appendChild(liens);
+      var total = eds.reduce(function (s, e) { return s + (e.total || 0); }, 0);
+      bas.appendChild(el("span", "jc-total", pluriel(total, "article")));
+      li.appendChild(bas);
+      ol.appendChild(li);
+    });
+  }
+
+  var photo = document.querySelector(".heros-image .photo");
+  function sansPhoto() { document.querySelector(".heros").classList.add("sans-photo"); }
+  if (photo) {
+    photo.addEventListener("error", sansPhoto);
+    if (photo.complete && !photo.naturalWidth) sansPhoto();
+  }
+  $("cta-parcourir").addEventListener("click", function () {
+    document.getElementById("archive").scrollIntoView({ behavior: reduit() ? "auto" : "smooth" });
+  });
+  $("mois-prec").addEventListener("click", function () {
+    var pos = etat.moisDispo.indexOf(etat.mois);
+    if (pos < etat.moisDispo.length - 1) { etat.mois = etat.moisDispo[pos + 1]; dessinerMois(); }
+  });
+  $("mois-suiv").addEventListener("click", function () {
+    var pos = etat.moisDispo.indexOf(etat.mois);
+    if (pos > 0) { etat.mois = etat.moisDispo[pos - 1]; dessinerMois(); }
+  });
+
+  // =============================================================
+  // RAPPORT
+  // =============================================================
+  function message(texte) {
+    var l = $("lecture");
+    l.textContent = "";
+    l.appendChild(el("p", "message", texte));
+  }
 
   function ouvrir(id) {
     etat.attendu = id;
@@ -304,15 +776,13 @@ select option { color: #16242A; background: #fff; }
     });
   }
 
-  // ---------- une edition ----------
   window.veilleEdition = function (ed) {
     if (!ed || ed.id !== etat.attendu) return;
     etat.edition = ed;
 
     $("jour").textContent = ed.jour;
     $("mois").textContent = ed.mois + " " + ed.annee;
-    $("sous").textContent = ed.jour_semaine.charAt(0).toUpperCase() + ed.jour_semaine.slice(1) +
-      ", édition de " + ed.heure + " h";
+    $("sous").textContent = majuscule(ed.jour_semaine) + ", édition de " + ed.heure + " h";
     $("resume").textContent = pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") +
       " sur " + pluriel(ed.sources.ok, "source") + " consultée" + (ed.sources.ok > 1 ? "s" : "") + ".";
     document.title = "Veille du " + ed.jour + " " + ed.mois + " " + ed.annee + " (" + ed.heure + " h)";
@@ -335,9 +805,8 @@ select option { color: #16242A; background: #fff; }
     dessinerLecture(false);
     dessinerNotes();
     ecrireAncre();
+    window.scrollTo(0, 0);
   };
-
-  function couleur(i) { return "var(--t" + (i % 6) + ")"; }
 
   function dessinerOnglets() {
     var nav = $("onglets");
@@ -359,11 +828,11 @@ select option { color: #16242A; background: #fff; }
     });
   }
 
-  function choisir(nom) {
+  function choisir(nom, depuisAncre) {
     if (nom === etat.theme) return;
     etat.theme = nom;
     ecrireStock(nom);
-    ecrireAncre();
+    if (!depuisAncre) ecrireAncre();
     Array.prototype.forEach.call($("onglets").children, function (b, i) {
       var cible = i === 0 ? TOUTES : etat.edition.themes[i - 1].nom;
       b.setAttribute("aria-pressed", String(cible === nom));
@@ -371,14 +840,13 @@ select option { color: #16242A; background: #fff; }
     });
     dessinerLecture(true);
     var mobile = window.matchMedia("(max-width: 800px)").matches;
-    var decalage = mobile ? 8 : 72;
-    var haut = document.querySelector(".corps").getBoundingClientRect().top + window.scrollY - decalage;
+    var haut = document.querySelector(".corps").getBoundingClientRect().top + window.scrollY -
+      (mobile ? 8 : 72);
     if (window.scrollY > haut) window.scrollTo({ top: haut });
   }
 
   function texteCite(parent, texte, articles, ancre) {
-    var morceaux = String(texte).split(/(\[\d{1,2}\])/);
-    morceaux.forEach(function (m) {
+    String(texte).split(/(\[\d{1,2}\])/).forEach(function (m) {
       var r = /^\[(\d{1,2})\]$/.exec(m);
       var n = r ? parseInt(r[1], 10) : 0;
       if (r && n >= 1 && n <= articles.length) {
@@ -389,8 +857,7 @@ select option { color: #16242A; background: #fff; }
           ev.preventDefault();
           var cible = document.getElementById(ancre + "-" + n);
           if (!cible) return;
-          var reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          cible.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
+          cible.scrollIntoView({ block: "center", behavior: reduit() ? "auto" : "smooth" });
           cible.classList.remove("vise");
           void cible.offsetWidth;
           cible.classList.add("vise");
@@ -405,14 +872,12 @@ select option { color: #16242A; background: #fff; }
   function dessinerLecture(anime) {
     var l = $("lecture");
     l.textContent = "";
-    var ed = etat.edition;
-    ed.themes.forEach(function (t, i) {
+    etat.edition.themes.forEach(function (t, i) {
       if (etat.theme !== TOUTES && t.nom !== etat.theme) return;
       var ancre = "t" + i;
       var s = el("section", "theme");
       s.style.setProperty("--theme", couleur(i));
       s.setAttribute("aria-labelledby", ancre + "-titre");
-
       var tete = el("div", "theme-tete");
       var h = el("h2", null, t.nom);
       h.id = ancre + "-titre";
@@ -422,8 +887,7 @@ select option { color: #16242A; background: #fff; }
       s.appendChild(tete);
 
       if (!t.articles.length) {
-        s.appendChild(el("p", "indispo",
-          "Aucune actualité pour cette thématique dans cette édition."));
+        s.appendChild(el("p", "indispo", "Aucune actualité pour cette thématique dans cette édition."));
         l.appendChild(s);
         return;
       }
@@ -481,17 +945,14 @@ select option { color: #16242A; background: #fff; }
     }
   }
 
-  $("edition").addEventListener("change", function (e) { ouvrir(e.target.value); });
-  window.addEventListener("hashchange", function () {
-    if (location.hash.indexOf("=") < 0) return;   // ancre interne, pas un reglage
-    var a = lireAncre();
-    if (a.edition && etat.edition && a.edition !== etat.edition.id) ouvrir(a.edition);
-    else if (etat.edition && (a.theme || TOUTES) !== etat.theme) choisir(a.theme || TOUTES);
+  $("edition").addEventListener("change", function (e) {
+    location.hash = ancreRapport(e.target.value, etat.theme);
   });
+  window.addEventListener("hashchange", aiguiller);
 
   charger("editions/index.js?v=" + Date.now(), function () {
-    $("mois").textContent = "Archive indisponible";
-    message("Impossible de charger la liste des éditions. Vérifiez votre connexion, puis rechargez la page.");
+    $("etat-global").textContent =
+      "Impossible de charger la liste des éditions. Vérifiez votre connexion, puis rechargez la page.";
   });
 })();
 </script>
