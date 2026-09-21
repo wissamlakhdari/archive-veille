@@ -1,27 +1,499 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Archive de la veille</title>
+<meta name="color-scheme" content="light dark">
+<title>Veille stratégique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
-:root { --bleu:#1F3B57; --gris:#5A5A5A; --fond:#E9EEF3; --carte:#fff; --filet:#D5DDE5; --texte:#222; }
-@media (prefers-color-scheme: dark) {
-  :root { --fond:#11181f; --carte:#1a232d; --filet:#2c3a48; --texte:#e6ebf0; --gris:#9aa8b6; --bleu:#8fb3d9; }
+:root {
+  --encre: #0F3A47;
+  --encre-vive: #145062;
+  --papier: #F4F6F5;
+  --surface: #FFFFFF;
+  --texte: #16242A;
+  --doux: #5C6B70;
+  --filet: #D3DCDA;
+  --t0: #B07A24; --t1: #2E7A58; --t2: #9E3838; --t3: #3F5E8C; --t4: #7A4D7E; --t5: #2F7D86;
+  --neutre: #7B8A8E;
+  --sans: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --theme: var(--encre);
 }
-body { margin:0; background:var(--fond); font-family:Arial,Helvetica,sans-serif; color:var(--texte); }
-.c { max-width:720px; margin:0 auto; padding:32px 16px; }
-header { background:#1F3B57; color:#fff; padding:28px 28px; border-radius:6px; }
-header small { letter-spacing:1.6px; text-transform:uppercase; color:#A9BCD0; font-size:12px; }
-header h1 { margin:6px 0 0; font-size:24px; }
-.l { margin-top:18px; background:var(--carte); border-radius:6px; overflow:hidden; }
-.r { display:flex; justify-content:space-between; padding:16px 22px; border-top:1px solid var(--filet);
-      text-decoration:none; color:var(--texte); }
-.r:first-child { border-top:none; }
-.r:hover { background:rgba(127,127,127,.08); }
-.f { color:var(--bleu); font-size:14px; }
-p.n { color:var(--gris); font-size:12px; margin-top:18px; }
-</style></head><body><div class="c">
-<header><small>Veille quotidienne</small><h1>Archive des rapports</h1></header>
-<div class="l"><a class="r" href="rapports/2026-09-21.html"><span class="d">Lundi 21 septembre 2026</span><span class="f">Consulter →</span></a></div>
-<p class="n">1 rapport(s) archivé(s). Page régénérée à chaque cycle.</p>
-</div></body></html>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --encre: #A9CDD6; --encre-vive: #CBE3E9;
+    --papier: #0E1D22; --surface: #132A31; --texte: #E3ECEA; --doux: #95A7AB; --filet: #274149;
+    --t0: #DDA94D; --t1: #62B98C; --t2: #DC7672; --t3: #92AEDB; --t4: #C391C7; --t5: #6CC2CB;
+    --neutre: #95A7AB;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px)); }
+body {
+  margin: 0; min-height: 100%;
+  background: var(--papier); color: var(--texte);
+  font: 400 1rem/1.5 var(--sans);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--encre-vive); outline-offset: 2px; border-radius: 2px; }
+
+/* ---------- barre ---------- */
+.barre {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--encre); color: #fff;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+@media (prefers-color-scheme: dark) { .barre { background: #0A2A33; } }
+.barre-in {
+  max-width: 1160px; margin: 0 auto; padding: .7rem 1.25rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.marque { font-weight: 600; font-size: 1.05rem; letter-spacing: .01em; margin-right: auto; order: 0; }
+.choix { order: 1; font-size: .9rem; color: #BCD6DC; display: flex; align-items: center; gap: .45rem; }
+#pdf { order: 2; }
+select {
+  font: 500 .95rem var(--sans); color: #fff; background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.28); border-radius: 4px; padding: .4rem .55rem;
+  max-width: 62vw;
+}
+select option { color: #16242A; background: #fff; }
+.bouton {
+  font: 600 .95rem var(--sans); text-decoration: none;
+  background: #fff; color: #0F3A47; border-radius: 4px; padding: .45rem .8rem;
+  display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap;
+}
+.bouton:hover { background: #E6F0F2; }
+.bouton[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+/* ---------- une ---------- */
+.page { max-width: 1160px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+.une {
+  display: flex; align-items: flex-end; gap: 1.25rem;
+  padding: 2.4rem 0 1.8rem; border-bottom: 1px solid var(--filet);
+}
+.jour {
+  font: 600 clamp(5.5rem, 15vw, 9.5rem)/.78 var(--sans);
+  color: var(--encre); letter-spacing: -.035em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.date-bloc { padding-bottom: .35rem; }
+.mois { margin: 0; font: 500 clamp(1.5rem, 3.4vw, 2.2rem)/1.1 var(--sans); color: var(--texte); }
+.sous { margin: .35rem 0 0; font-size: 1.05rem; color: var(--doux); }
+.resume { margin: .7rem 0 0; font: 400 1.05rem/1.45 var(--serif); color: var(--texte); max-width: 46ch; }
+
+/* ---------- corps : onglets + lecture ---------- */
+.corps { display: grid; grid-template-columns: 15.5rem minmax(0, 1fr); gap: 3rem; padding-top: 2rem; }
+.onglets {
+  position: sticky; top: calc(4.2rem + env(safe-area-inset-top, 0px));
+  align-self: start; display: flex; flex-direction: column; gap: .35rem;
+}
+.onglet {
+  --c: var(--neutre);
+  appearance: none; cursor: pointer; text-align: left; width: 100%;
+  font: 500 1rem/1.25 var(--sans); color: var(--doux);
+  background: transparent; border: 0; border-radius: 0 4px 4px 0;
+  padding: .7rem .8rem .7rem 1.05rem; position: relative;
+  display: flex; justify-content: space-between; align-items: baseline; gap: .8rem;
+}
+.onglet::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: var(--c); border-radius: 1px; transition: width .15s ease;
+}
+.onglet:hover { color: var(--texte); background: color-mix(in srgb, var(--c) 7%, transparent); }
+.onglet[aria-pressed="true"] {
+  color: var(--texte); font-weight: 600;
+  background: color-mix(in srgb, var(--c) 13%, var(--surface));
+}
+.onglet[aria-pressed="true"]::before { width: 8px; }
+.onglet .n { font-weight: 400; color: var(--doux); font-variant-numeric: tabular-nums; font-size: .92rem; }
+
+.lecture { min-width: 0; }
+.lecture.bascule { animation: bascule .18s ease-out; }
+@keyframes bascule { from { opacity: .25; } to { opacity: 1; } }
+
+.theme { --theme: var(--encre); margin: 0 0 3.2rem; }
+.theme:last-child { margin-bottom: 0; }
+.theme-tete { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.theme-tete::before {
+  content: ""; flex: 0 0 100%; height: 5px; max-width: 3.4rem;
+  background: var(--theme); margin-bottom: .55rem;
+}
+.theme h2 { margin: 0; font: 600 clamp(1.55rem, 2.6vw, 1.9rem)/1.15 var(--sans); color: var(--texte); }
+.theme .compte { color: var(--doux); font-size: .95rem; }
+
+.synthese {
+  font: 400 1.14rem/1.72 var(--serif); margin: 0 0 1.3rem; max-width: 66ch;
+  hyphens: auto; -webkit-hyphens: auto;
+}
+.cite { color: var(--theme); font: 600 .92em var(--sans); text-decoration: none; padding: 0 .06em; }
+.cite:hover { text-decoration: underline; text-underline-offset: 2px; }
+.analyse {
+  margin: 0 0 1.6rem; max-width: 66ch;
+  background: color-mix(in srgb, var(--theme) 9%, var(--surface));
+  border-left: 3px solid var(--theme);
+  padding: .95rem 1.15rem; font: 400 1.04rem/1.62 var(--serif);
+}
+.analyse strong { font: 600 1rem var(--sans); color: var(--texte); margin-right: .3rem; }
+.indispo { font: italic 400 1.02rem/1.6 var(--serif); color: var(--doux); margin: 0 0 1.3rem; }
+
+.sources { list-style: none; margin: 0; padding: 0; max-width: 72ch; }
+.sources li {
+  display: grid; grid-template-columns: 2.4rem 1fr; gap: .2rem;
+  padding: .7rem 0; border-top: 1px solid var(--filet);
+}
+.sources li.vise { animation: vise 1.6s ease-out; }
+@keyframes vise { 0%, 35% { background: color-mix(in srgb, var(--theme) 16%, transparent); } 100% { background: transparent; } }
+.sources .num { color: var(--doux); font-variant-numeric: tabular-nums; font-size: .92rem; padding-top: .1rem; }
+.sources a { font-weight: 600; color: var(--encre); text-decoration: none; line-height: 1.35; }
+.sources a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.sources .meta { display: block; color: var(--doux); font-size: .9rem; margin-top: .2rem; }
+
+.message {
+  font: 400 1.1rem/1.6 var(--serif); color: var(--doux);
+  padding: 2rem 0; max-width: 52ch;
+}
+.notes {
+  margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--filet);
+  color: var(--doux); font-size: .9rem; line-height: 1.6;
+}
+.notes p { margin: 0 0 .25rem; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 800px) {
+  .barre { position: static; }
+  .barre-in { padding: .65rem 1rem .75rem; gap: .6rem .75rem; }
+  #pdf { order: 1; padding: .4rem .7rem; font-size: .9rem; }
+  .choix { order: 2; flex-basis: 100%; }
+  .choix select { flex: 1; max-width: none; }
+  .page { padding: 0 1rem 2.5rem; }
+  .une { padding: 1.6rem 0 1.3rem; gap: .9rem; }
+  .corps { display: block; padding-top: 0; }
+  .onglets {
+    top: 0; padding-top: calc(.7rem + env(safe-area-inset-top, 0px)); z-index: 4;
+    flex-direction: row; overflow-x: auto; gap: .4rem;
+    margin: 0 -1rem 1.6rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: .7rem;
+    background: var(--papier); border-bottom: 1px solid var(--filet);
+    scrollbar-width: none;
+  }
+  .onglets::-webkit-scrollbar { display: none; }
+  .onglet { width: auto; flex: 0 0 auto; border-radius: 0 0 4px 4px; padding: .5rem .75rem .45rem; }
+  .onglet::before { left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 4px; }
+  .onglet[aria-pressed="true"]::before { width: auto; height: 6px; }
+  .synthese { font-size: 1.08rem; }
+  html { scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lecture.bascule, .sources li.vise { animation: none; }
+  .onglet::before { transition: none; }
+}
+@media print {
+  .barre, .onglets { display: none; }
+  .corps { display: block; }
+  body { background: #fff; }
+}
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="barre-in">
+    <span class="marque">Veille stratégique</span>
+    <a id="pdf" class="bouton" href="#" aria-disabled="true" download>Télécharger le PDF</a>
+    <label class="choix" for="edition">Édition <select id="edition" disabled></select></label>
+  </div>
+</header>
+
+<main class="page">
+  <section class="une" aria-live="polite">
+    <div class="jour" id="jour" aria-hidden="true"></div>
+    <div class="date-bloc">
+      <p class="mois" id="mois">Chargement…</p>
+      <p class="sous" id="sous"></p>
+      <p class="resume" id="resume"></p>
+    </div>
+  </section>
+
+  <div class="corps">
+    <nav class="onglets" id="onglets" aria-label="Choisir une thématique"></nav>
+    <div class="lecture" id="lecture"></div>
+  </div>
+
+  <footer class="notes" id="notes"></footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var etat = { index: [], edition: null, theme: null, attendu: null };
+  var TOUTES = "toutes";
+  var CLE_THEME = "veille.theme";
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, texte) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (texte != null) n.textContent = texte;
+    return n;
+  }
+  function lienSur(url) { return /^https?:\/\//i.test(url || "") ? url : null; }
+  function pluriel(n, mot) { return n + " " + mot + (n > 1 ? "s" : ""); }
+
+  function lireStock() { try { return localStorage.getItem(CLE_THEME); } catch (e) { return null; } }
+  function ecrireStock(v) { try { localStorage.setItem(CLE_THEME, v); } catch (e) {} }
+
+  function lireAncre() {
+    var p = new URLSearchParams(location.hash.replace(/^#/, ""));
+    return { edition: p.get("edition"), theme: p.get("theme") };
+  }
+  function ecrireAncre() {
+    var p = new URLSearchParams();
+    if (etat.edition) p.set("edition", etat.edition.id);
+    if (etat.theme && etat.theme !== TOUTES) p.set("theme", etat.theme);
+    history.replaceState(null, "", "#" + p.toString());
+  }
+
+  function charger(src, echec) {
+    var s = document.createElement("script");
+    s.src = src;
+    s.onerror = echec;
+    document.head.appendChild(s);
+  }
+
+  function message(texte) {
+    var l = $("lecture");
+    l.textContent = "";
+    l.appendChild(el("p", "message", texte));
+  }
+
+  // ---------- index des editions ----------
+  window.veilleIndex = function (liste) {
+    etat.index = Array.isArray(liste) ? liste : [];
+    var sel = $("edition");
+    sel.textContent = "";
+    if (!etat.index.length) {
+      $("mois").textContent = "Aucun rapport publié";
+      $("sous").textContent = "";
+      message("Le premier rapport apparaîtra ici après le prochain envoi planifié.");
+      return;
+    }
+    etat.index.forEach(function (e) {
+      var o = el("option", null, e.libelle);
+      o.value = e.id;
+      sel.appendChild(o);
+    });
+    sel.disabled = false;
+    var voulue = lireAncre().edition;
+    var existe = etat.index.some(function (e) { return e.id === voulue; });
+    ouvrir(existe ? voulue : etat.index[0].id);
+  };
+
+  function ouvrir(id) {
+    etat.attendu = id;
+    $("edition").value = id;
+    $("pdf").setAttribute("aria-disabled", "true");
+    charger("editions/" + encodeURIComponent(id) + ".js", function () {
+      if (etat.attendu !== id) return;
+      message("Impossible de charger cette édition. Vérifiez votre connexion, puis rechargez la page.");
+    });
+  }
+
+  // ---------- une edition ----------
+  window.veilleEdition = function (ed) {
+    if (!ed || ed.id !== etat.attendu) return;
+    etat.edition = ed;
+
+    $("jour").textContent = ed.jour;
+    $("mois").textContent = ed.mois + " " + ed.annee;
+    $("sous").textContent = ed.jour_semaine.charAt(0).toUpperCase() + ed.jour_semaine.slice(1) +
+      ", édition de " + ed.heure + " h";
+    $("resume").textContent = pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") +
+      " sur " + pluriel(ed.sources.ok, "source") + " consultée" + (ed.sources.ok > 1 ? "s" : "") + ".";
+    document.title = "Veille du " + ed.jour + " " + ed.mois + " " + ed.annee + " (" + ed.heure + " h)";
+
+    var pdf = $("pdf");
+    if (ed.pdf) {
+      pdf.href = ed.pdf;
+      pdf.setAttribute("download", "Veille_" + ed.id + ".pdf");
+      pdf.setAttribute("aria-disabled", "false");
+    } else {
+      pdf.removeAttribute("href");
+      pdf.setAttribute("aria-disabled", "true");
+    }
+
+    var noms = ed.themes.map(function (t) { return t.nom; });
+    var voulu = lireAncre().theme || lireStock() || TOUTES;
+    etat.theme = noms.indexOf(voulu) >= 0 ? voulu : TOUTES;
+
+    dessinerOnglets();
+    dessinerLecture(false);
+    dessinerNotes();
+    ecrireAncre();
+  };
+
+  function couleur(i) { return "var(--t" + (i % 6) + ")"; }
+
+  function dessinerOnglets() {
+    var nav = $("onglets");
+    nav.textContent = "";
+    var ed = etat.edition;
+    var entrees = [{ nom: TOUTES, libelle: "Toutes", n: ed.total, c: "var(--neutre)" }];
+    ed.themes.forEach(function (t, i) {
+      entrees.push({ nom: t.nom, libelle: t.nom, n: t.articles.length, c: couleur(i) });
+    });
+    entrees.forEach(function (e) {
+      var b = el("button", "onglet");
+      b.type = "button";
+      b.style.setProperty("--c", e.c);
+      b.setAttribute("aria-pressed", String(e.nom === etat.theme));
+      b.appendChild(el("span", null, e.libelle));
+      b.appendChild(el("span", "n", String(e.n)));
+      b.addEventListener("click", function () { choisir(e.nom); });
+      nav.appendChild(b);
+    });
+  }
+
+  function choisir(nom) {
+    if (nom === etat.theme) return;
+    etat.theme = nom;
+    ecrireStock(nom);
+    ecrireAncre();
+    Array.prototype.forEach.call($("onglets").children, function (b, i) {
+      var cible = i === 0 ? TOUTES : etat.edition.themes[i - 1].nom;
+      b.setAttribute("aria-pressed", String(cible === nom));
+      if (cible === nom) b.scrollIntoView({ inline: "nearest", block: "nearest" });
+    });
+    dessinerLecture(true);
+    var mobile = window.matchMedia("(max-width: 800px)").matches;
+    var decalage = mobile ? 8 : 72;
+    var haut = document.querySelector(".corps").getBoundingClientRect().top + window.scrollY - decalage;
+    if (window.scrollY > haut) window.scrollTo({ top: haut });
+  }
+
+  function texteCite(parent, texte, articles, ancre) {
+    var morceaux = String(texte).split(/(\[\d{1,2}\])/);
+    morceaux.forEach(function (m) {
+      var r = /^\[(\d{1,2})\]$/.exec(m);
+      var n = r ? parseInt(r[1], 10) : 0;
+      if (r && n >= 1 && n <= articles.length) {
+        var a = el("a", "cite", "[" + n + "]");
+        a.href = "#" + ancre + "-" + n;
+        a.title = articles[n - 1].titre;
+        a.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          var cible = document.getElementById(ancre + "-" + n);
+          if (!cible) return;
+          var reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          cible.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
+          cible.classList.remove("vise");
+          void cible.offsetWidth;
+          cible.classList.add("vise");
+        });
+        parent.appendChild(a);
+      } else if (m) {
+        parent.appendChild(document.createTextNode(m));
+      }
+    });
+  }
+
+  function dessinerLecture(anime) {
+    var l = $("lecture");
+    l.textContent = "";
+    var ed = etat.edition;
+    ed.themes.forEach(function (t, i) {
+      if (etat.theme !== TOUTES && t.nom !== etat.theme) return;
+      var ancre = "t" + i;
+      var s = el("section", "theme");
+      s.style.setProperty("--theme", couleur(i));
+      s.setAttribute("aria-labelledby", ancre + "-titre");
+
+      var tete = el("div", "theme-tete");
+      var h = el("h2", null, t.nom);
+      h.id = ancre + "-titre";
+      tete.appendChild(h);
+      tete.appendChild(el("span", "compte", t.articles.length
+        ? pluriel(t.articles.length, "article") : "Aucun article"));
+      s.appendChild(tete);
+
+      if (!t.articles.length) {
+        s.appendChild(el("p", "indispo",
+          "Aucune actualité pour cette thématique dans cette édition."));
+        l.appendChild(s);
+        return;
+      }
+      if (t.synthese) {
+        var p = el("p", "synthese");
+        texteCite(p, t.synthese, t.articles, ancre);
+        s.appendChild(p);
+      } else {
+        s.appendChild(el("p", "indispo", "Synthèse indisponible pour cette édition" +
+          (t.erreur ? " (" + t.erreur + ")" : "") + ". Les articles retenus figurent ci-dessous."));
+      }
+      if (t.analyse) {
+        var a = el("div", "analyse");
+        a.appendChild(el("strong", null, "Analyse."));
+        texteCite(a, t.analyse, t.articles, ancre);
+        s.appendChild(a);
+      }
+      var ol = el("ol", "sources");
+      ol.setAttribute("aria-label", "Articles cités, " + t.nom);
+      t.articles.forEach(function (art, k) {
+        var li = el("li");
+        li.id = ancre + "-" + (k + 1);
+        li.appendChild(el("span", "num", "[" + (k + 1) + "]"));
+        var bloc = el("div");
+        var url = lienSur(art.lien);
+        var titre = el(url ? "a" : "span", null, art.titre);
+        if (url) { titre.href = url; titre.target = "_blank"; titre.rel = "noopener noreferrer"; }
+        bloc.appendChild(titre);
+        bloc.appendChild(el("span", "meta", [art.source, art.date].filter(Boolean).join(", ")));
+        li.appendChild(bloc);
+        ol.appendChild(li);
+      });
+      s.appendChild(ol);
+      l.appendChild(s);
+    });
+    if (anime) {
+      l.classList.remove("bascule");
+      void l.offsetWidth;
+      l.classList.add("bascule");
+    }
+  }
+
+  function dessinerNotes() {
+    var f = $("notes");
+    f.textContent = "";
+    var src = etat.edition.sources;
+    f.appendChild(el("p", null, pluriel(src.ok, "source") + " consultée" + (src.ok > 1 ? "s" : "") +
+      " sur " + src.total + "."));
+    if (src.echecs && src.echecs.length) {
+      f.appendChild(el("p", null, "Non consultées lors de cette édition : " +
+        src.echecs.map(function (e) { return e.nom + " (" + e.raison + ")"; }).join(", ") + "."));
+    }
+    if (etat.edition.modele) {
+      f.appendChild(el("p", null, "Synthèses rédigées automatiquement à partir des seuls articles cités."));
+    }
+  }
+
+  $("edition").addEventListener("change", function (e) { ouvrir(e.target.value); });
+  window.addEventListener("hashchange", function () {
+    if (location.hash.indexOf("=") < 0) return;   // ancre interne, pas un reglage
+    var a = lireAncre();
+    if (a.edition && etat.edition && a.edition !== etat.edition.id) ouvrir(a.edition);
+    else if (etat.edition && (a.theme || TOUTES) !== etat.theme) choisir(a.theme || TOUTES);
+  });
+
+  charger("editions/index.js?v=" + Date.now(), function () {
+    $("mois").textContent = "Archive indisponible";
+    message("Impossible de charger la liste des éditions. Vérifiez votre connexion, puis rechargez la page.");
+  });
+})();
+</script>
+</body>
+</html>
