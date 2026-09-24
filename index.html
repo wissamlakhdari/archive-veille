@@ -448,6 +448,12 @@ select option { color: #16242A; background: #fff; }
   function pluriel(n, mot) { return n + " " + mot + (n > 1 ? "s" : ""); }
   function majuscule(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
   function couleur(i) { return "var(--t" + (i % 6) + ")"; }
+  // 8 h, 8 h 30 ; les editions anterieures n'ont que l'heure
+  function horaire(e) {
+    if (e.horaire) return e.horaire;
+    var m = e.minute || 0;
+    return e.heure + " h" + (m ? " " + (m < 10 ? "0" : "") + m : "");
+  }
   function couleurVive(i) { return "var(--v" + (i % 6) + ")"; }
   function lireStock() { try { return localStorage.getItem(CLE_THEME); } catch (e) { return null; } }
   function ecrireStock(v) { try { localStorage.setItem(CLE_THEME, v); } catch (e) {} }
@@ -472,9 +478,11 @@ select option { color: #16242A; background: #fff; }
 
   // Les entrees d'index anterieures a l'accueil n'ont pas tous les champs
   function completer(e) {
-    var r = /^(\d{4})-(\d{2})-(\d{2})-(\d{2})h$/.exec(e.id) || [];
+    var r = /^(\d{4})-(\d{2})-(\d{2})-(\d{2})h(\d{2})?$/.exec(e.id) || [];
     e.date = e.date || (r[1] + "-" + r[2] + "-" + r[3]);
     e.heure = e.heure != null ? e.heure : +r[4];
+    e.minute = e.minute != null ? e.minute : +(r[5] || 0);
+    e.horaire = e.horaire || horaire(e);
     e.jour = e.jour || +r[3];
     e.annee = e.annee || +r[1];
     e.mois = e.mois || MOIS[+r[2] - 1];
@@ -613,8 +621,8 @@ select option { color: #16242A; background: #fff; }
     var haut = el("div", "vedette-haut");
     haut.appendChild(el("span", "pastille", aujourdhui ? "Aujourd'hui" : "Dernière édition"));
     haut.appendChild(el("span", "vedette-heure", aujourdhui
-      ? "Édition de " + aLaUne.heure + " h"
-      : majuscule(aLaUne.jour_semaine) + " " + aLaUne.jour + " " + aLaUne.mois + ", " + aLaUne.heure + " h"));
+      ? "Édition de " + aLaUne.horaire
+      : majuscule(aLaUne.jour_semaine) + " " + aLaUne.jour + " " + aLaUne.mois + ", " + aLaUne.horaire));
     v.appendChild(haut);
 
     var g = el("div", "vedette-gauche");
@@ -638,10 +646,12 @@ select option { color: #16242A; background: #fff; }
     }
     blocActions.appendChild(act);
     if (duJour.length > 1) {
-      var autres = el("p", "autres", "Autre édition aujourd'hui : ");
-      duJour.slice(1).forEach(function (e, i) {
+      var autres = el("p", "autres", duJour.length > 2 ? "Autres éditions aujourd'hui : " : "Autre édition aujourd'hui : ");
+      duJour.slice(1).sort(function (a, b) {
+        return (a.heure * 60 + a.minute) - (b.heure * 60 + b.minute);
+      }).forEach(function (e, i) {
         if (i) autres.appendChild(document.createTextNode(", "));
-        var a = el("a", null, e.heure + " h");
+        var a = el("a", null, e.horaire);
         a.href = ancreRapport(e.id, lireStock());
         autres.appendChild(a);
       });
@@ -699,7 +709,7 @@ select option { color: #16242A; background: #fff; }
       return;
     }
     ordre.forEach(function (date) {
-      var eds = parJour[date].slice().sort(function (a, b) { return a.heure - b.heure; });
+      var eds = parJour[date].slice().sort(function (a, b) { return (a.heure * 60 + a.minute) - (b.heure * 60 + b.minute); });
       var ref = eds[eds.length - 1];
       var li = el("li", "jour-case" + (date === now.iso ? " est-aujourdhui" : ""));
 
@@ -725,10 +735,10 @@ select option { color: #16242A; background: #fff; }
       var bas = el("div", "jc-bas");
       var liens = el("div", "jc-editions");
       eds.forEach(function (e) {
-        var a = el("a", null, e.heure + " h");
+        var a = el("a", null, e.horaire);
         a.href = ancreRapport(e.id, lireStock());
         a.setAttribute("aria-label", "Lire l'édition du " + e.jour_semaine + " " + e.jour + " " +
-          e.mois + ", " + e.heure + " h");
+          e.mois + ", " + e.horaire);
         liens.appendChild(a);
       });
       bas.appendChild(liens);
@@ -782,10 +792,10 @@ select option { color: #16242A; background: #fff; }
 
     $("jour").textContent = ed.jour;
     $("mois").textContent = ed.mois + " " + ed.annee;
-    $("sous").textContent = majuscule(ed.jour_semaine) + ", édition de " + ed.heure + " h";
+    $("sous").textContent = majuscule(ed.jour_semaine) + ", édition de " + horaire(ed);
     $("resume").textContent = pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") +
       " sur " + pluriel(ed.sources.ok, "source") + " consultée" + (ed.sources.ok > 1 ? "s" : "") + ".";
-    document.title = "Veille du " + ed.jour + " " + ed.mois + " " + ed.annee + " (" + ed.heure + " h)";
+    document.title = "Veille du " + ed.jour + " " + ed.mois + " " + ed.annee + " (" + horaire(ed) + ")";
 
     var pdf = $("pdf");
     if (ed.pdf) {
