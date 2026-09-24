@@ -1,18 +1,19 @@
 [
  {
-  "id": "2026-09-24-18h18",
-  "libelle": "jeudi 24 septembre 2026, 18 h 18",
+  "id": "2026-09-24-18h53",
+  "libelle": "jeudi 24 septembre 2026, 18 h 53",
   "total": 0,
   "date": "2026-09-24",
   "heure": 18,
-  "minute": 18,
-  "horaire": "18 h 18",
+  "minute": 53,
+  "horaire": "18 h 53",
   "jour": 24,
   "mois": "septembre",
   "annee": 2026,
   "jour_semaine": "jeudi",
-  "pdf": "pdf/2026-09-24-18h18.pdf",
+  "pdf": "pdf/2026-09-24-18h53.pdf",
   "nb_sources": 7,
+  "retablies": [],
   "themes": [
    {
     "nom": "Économie",

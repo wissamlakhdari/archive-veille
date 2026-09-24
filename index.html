@@ -22,6 +22,7 @@
   /* teintes lisibles sur le panneau sombre de l'edition du jour */
   --v0: #E6B55C; --v1: #6CC99A; --v2: #EE8783; --v3: #9DB8E4; --v4: #CC9ACF; --v5: #79CDD5;
   --neutre: #7B8A8E;
+  --alerte: #C98A1E; --alerte-texte: #8A5A12;
   --vedette: #0F3A47;
   --vedette-texte: #FFFFFF;
   --vedette-doux: #B6CFD5;
@@ -35,6 +36,7 @@
     --papier: #0E1D22; --surface: #132A31; --texte: #E3ECEA; --doux: #95A7AB; --filet: #274149;
     --t0: #DDA94D; --t1: #62B98C; --t2: #DC7672; --t3: #92AEDB; --t4: #C391C7; --t5: #6CC2CB;
     --neutre: #95A7AB;
+    --alerte: #DDA94D; --alerte-texte: #E6B55C;
     --vedette: #17414D;
   }
 }
@@ -303,6 +305,18 @@ select option { color: #16242A; background: #fff; }
 .sources a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .sources .meta { display: block; color: var(--doux); font-size: .9rem; margin-top: .2rem; }
 
+/* sources de nouveau accessibles apres une indisponibilite */
+.retablies {
+  margin: 1.4rem 0 .4rem; max-width: 72ch;
+  background: color-mix(in srgb, var(--alerte) 10%, var(--surface));
+  border-left: 3px solid var(--alerte); padding: .9rem 1.15rem;
+  font: 400 1rem/1.6 var(--serif);
+}
+.retablies h2 { margin: 0 0 .35rem; font: 600 .82rem/1.3 var(--sans); letter-spacing: .08em;
+  text-transform: uppercase; color: var(--alerte-texte); }
+.retablies p { margin: .3rem 0 0; }
+.retablies strong { font: 600 1rem var(--sans); }
+.sources .rattrape { color: var(--alerte-texte); white-space: nowrap; }
 .message { font: 400 1.1rem/1.6 var(--serif); color: var(--doux); padding: 2rem 0; max-width: 52ch; }
 .notes {
   margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--filet);
@@ -416,6 +430,7 @@ select option { color: #16242A; background: #fff; }
         <p class="resume" id="resume"></p>
       </div>
     </section>
+    <aside class="retablies" id="retablies" aria-labelledby="retablies-titre" hidden></aside>
     <div class="corps">
       <nav class="onglets" id="onglets" aria-label="Choisir une thématique"></nav>
       <div class="lecture" id="lecture"></div>
@@ -630,6 +645,11 @@ select option { color: #16242A; background: #fff; }
     g.appendChild(el("p", "vedette-titre", pluriel(aLaUne.total, "article") + " retenu" +
       (aLaUne.total > 1 ? "s" : "") + (nbThemes ? " dans " + pluriel(nbThemes, "thématique") : "")));
     if (aLaUne.extrait) g.appendChild(el("p", "extrait", aLaUne.extrait));
+    if (aLaUne.retablies && aLaUne.retablies.length) {
+      g.appendChild(el("p", "extrait discret", (aLaUne.retablies.length > 1
+        ? "Sources de nouveau accessibles : " : "Source de nouveau accessible : ") +
+        aLaUne.retablies.join(", ") + ". Leurs publications manquées ont été reprises."));
+    }
     if (!aujourdhui) g.appendChild(el("p", "extrait discret", "Aucune édition n'a encore été publiée aujourd'hui."));
     v.appendChild(g);
 
@@ -795,6 +815,7 @@ select option { color: #16242A; background: #fff; }
     $("sous").textContent = majuscule(ed.jour_semaine) + ", édition de " + horaire(ed);
     $("resume").textContent = pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") +
       " sur " + pluriel(ed.sources.ok, "source") + " consultée" + (ed.sources.ok > 1 ? "s" : "") + ".";
+    dessinerRetablies(ed);
     document.title = "Veille du " + ed.jour + " " + ed.mois + " " + ed.annee + " (" + horaire(ed) + ")";
 
     var pdf = $("pdf");
@@ -926,7 +947,12 @@ select option { color: #16242A; background: #fff; }
         var titre = el(url ? "a" : "span", null, art.titre);
         if (url) { titre.href = url; titre.target = "_blank"; titre.rel = "noopener noreferrer"; }
         bloc.appendChild(titre);
-        bloc.appendChild(el("span", "meta", [art.source, art.date].filter(Boolean).join(", ")));
+        var meta = el("span", "meta", [art.source, art.date].filter(Boolean).join(", "));
+        if (art.rattrapage) {
+          meta.appendChild(document.createTextNode(" · "));
+          meta.appendChild(el("span", "rattrape", "publié pendant l'indisponibilité de la source"));
+        }
+        bloc.appendChild(meta);
         li.appendChild(bloc);
         ol.appendChild(li);
       });
@@ -940,10 +966,29 @@ select option { color: #16242A; background: #fff; }
     }
   }
 
+  function dessinerRetablies(ed) {
+    var box = $("retablies");
+    box.textContent = "";
+    var liste = (ed.couverture && ed.couverture.retablies) || [];
+    box.hidden = !liste.length;
+    if (!liste.length) return;
+    var h = el("h2", null, liste.length > 1 ? "Sources de nouveau accessibles"
+                                            : "Source de nouveau accessible");
+    h.id = "retablies-titre";
+    box.appendChild(h);
+    liste.forEach(function (r) {
+      var p = el("p");
+      p.appendChild(el("strong", null, r.nom));
+      p.appendChild(document.createTextNode(" (" + r.thematique + ") — " + r.texte));
+      box.appendChild(p);
+    });
+  }
+
   function dessinerNotes() {
     var f = $("notes");
     f.textContent = "";
     var src = etat.edition.sources;
+    if (etat.edition.couverture) f.appendChild(el("p", null, etat.edition.couverture.periode));
     f.appendChild(el("p", null, pluriel(src.ok, "source") + " consultée" + (src.ok > 1 ? "s" : "") +
       " sur " + src.total + "."));
     if (src.echecs && src.echecs.length) {
