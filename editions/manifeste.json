@@ -1,5 +1,36 @@
 [
  {
+  "id": "2026-09-26-08h00",
+  "libelle": "samedi 26 septembre 2026, 8 h",
+  "total": 0,
+  "date": "2026-09-26",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 26,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-09-26-08h00.pdf",
+  "nb_sources": 7,
+  "retablies": [],
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 0
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": ""
+ },
+ {
   "id": "2026-09-25-14h10",
   "libelle": "vendredi 25 septembre 2026, 14 h 10",
   "total": 0,
