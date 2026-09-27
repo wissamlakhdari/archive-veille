@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-09-27-08h00",
+  "libelle": "dimanche 27 septembre 2026, 8 h",
+  "total": 4,
+  "date": "2026-09-27",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 27,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-09-27-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le secrétaire général de l'OPEP, Haitham Al Ghais, effectue une visite de travail en Algérie pour examiner la situation du marché pétrolier face aux tensions géopolitiques au Moyen-Orient."
+ },
+ {
   "id": "2026-09-26-19h15",
   "libelle": "samedi 26 septembre 2026, 19 h 15",
   "total": 35,
