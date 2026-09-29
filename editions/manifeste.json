@@ -30,6 +30,36 @@
   "extrait": "Renouvellement du parc national de transport : l'opération se poursuit à travers les wilayas El Moudjahid"
  },
  {
+  "id": "2026-09-29-14h10",
+  "libelle": "mardi 29 septembre 2026, 14 h 10",
+  "total": 28,
+  "date": "2026-09-29",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 29,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "mardi",
+  "pdf": "pdf/2026-09-29-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 16
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 8
+   },
+   {
+    "nom": "Concurrence",
+    "n": 4
+   }
+  ],
+  "extrait": "Le secrétaire général de l'OPEP, Haitham Al Ghais, a salué le rôle de l'Algérie et le leadership du président Abdelmadjid Tebboune lors de sa visite marquant le dixième anniversaire de l'Accord d'Alger."
+ },
+ {
   "id": "2026-09-29-08h00",
   "libelle": "mardi 29 septembre 2026, 8 h",
   "total": 11,
