@@ -1,22 +1,172 @@
 [
  {
-  "id": "2026-09-29-14h10",
-  "libelle": "mardi 29 septembre 2026, 14 h 10",
-  "total": 28,
+  "id": "2026-09-29-15h47",
+  "libelle": "mardi 29 septembre 2026, 15 h 47",
+  "total": 23,
   "date": "2026-09-29",
-  "heure": 14,
-  "minute": 10,
-  "horaire": "14 h 10",
+  "heure": 15,
+  "minute": 47,
+  "horaire": "15 h 47",
   "jour": 29,
   "mois": "septembre",
   "annee": 2026,
   "jour_semaine": "mardi",
-  "pdf": "pdf/2026-09-29-14h10.pdf",
+  "pdf": "pdf/2026-09-29-15h47.pdf",
   "nb_sources": 7,
   "themes": [
    {
     "nom": "Économie",
-    "n": 16
+    "n": 12
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 9
+   },
+   {
+    "nom": "Concurrence",
+    "n": 2
+   }
+  ],
+  "extrait": "Renouvellement du parc national de transport : l'opération se poursuit à travers les wilayas El Moudjahid"
+ },
+ {
+  "id": "2026-09-28-14h10",
+  "libelle": "lundi 28 septembre 2026, 14 h 10",
+  "total": 7,
+  "date": "2026-09-28",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 28,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-09-28-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 6
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le tribunal correctionnel de Paris a condamné, lundi 28 septembre, la compagnie espagnole Swiftair à 225 000 euros d’amende, la peine maximale, pour le crash du vol AH5017 en 2014."
+ },
+ {
+  "id": "2026-09-28-08h00",
+  "libelle": "lundi 28 septembre 2026, 8 h",
+  "total": 13,
+  "date": "2026-09-28",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 28,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-09-28-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 11
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le ministre des Hydrocarbures et le secrétaire général de l'OPEP ont tenu une réunion à Alger axée sur la conjoncture pétrolière mondiale et le mécanisme OPEP+."
+ },
+ {
+  "id": "2026-09-27-14h10",
+  "libelle": "dimanche 27 septembre 2026, 14 h 10",
+  "total": 17,
+  "date": "2026-09-27",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 27,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-09-27-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 13
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 4
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le ministre a tenu une rencontre avec le responsable de l'OPEP afin d'intensifier le dialogue bilatéral."
+ },
+ {
+  "id": "2026-09-27-08h00",
+  "libelle": "dimanche 27 septembre 2026, 8 h",
+  "total": 4,
+  "date": "2026-09-27",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 27,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-09-27-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le secrétaire général de l'OPEP, Haitham Al Ghais, effectue une visite de travail en Algérie pour examiner la situation du marché pétrolier face aux tensions géopolitiques au Moyen-Orient."
+ },
+ {
+  "id": "2026-09-26-19h15",
+  "libelle": "samedi 26 septembre 2026, 19 h 15",
+  "total": 35,
+  "date": "2026-09-26",
+  "heure": 19,
+  "minute": 15,
+  "horaire": "19 h 15",
+  "jour": 26,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-09-26-19h15.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 26
    },
    {
     "nom": "Transition énergétique",
@@ -24,10 +174,10 @@
    },
    {
     "nom": "Concurrence",
-    "n": 4
+    "n": 1
    }
   ],
-  "extrait": "Le secrétaire général de l'OPEP, Haitham Al Ghais, a salué le rôle de l'Algérie et le leadership du président Abdelmadjid Tebboune lors de sa visite marquant le dixième anniversaire de l'Accord d'Alger."
+  "extrait": "Les autorités algériennes ont fixé à 2027 la fin de l'importation de pièces plastiques pour l'industrie automobile afin d'encourager la production nationale."
  },
  {
   "id": "2026-09-26-14h10",
