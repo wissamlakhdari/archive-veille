@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-09-30-08h00",
+  "libelle": "mercredi 30 septembre 2026, 8 h",
+  "total": 17,
+  "date": "2026-09-30",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 30,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-09-30-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 13
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 4
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Une délégation de l'institution financière internationale a été accueillie dans la capitale pour des échanges."
+ },
+ {
   "id": "2026-09-29-15h47",
   "libelle": "mardi 29 septembre 2026, 15 h 47",
   "total": 23,
