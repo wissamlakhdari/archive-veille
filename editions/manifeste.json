@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-09-30-14h10",
+  "libelle": "mercredi 30 septembre 2026, 14 h 10",
+  "total": 10,
+  "date": "2026-09-30",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 30,
+  "mois": "septembre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-09-30-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 3
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 7
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Une réunion de coordination consacrée au plan d'action d'une joint-venture algéro-chinoise a été dirigée par Djellaoui."
+ },
+ {
   "id": "2026-09-30-08h00",
   "libelle": "mercredi 30 septembre 2026, 8 h",
   "total": 17,
