@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-01-14h10",
+  "libelle": "jeudi 1 octobre 2026, 14 h 10",
+  "total": 7,
+  "date": "2026-10-01",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 1,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "jeudi",
+  "pdf": "pdf/2026-10-01-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le Gouvernement a entamé l'examen de la première mouture de l'avant-projet de loi de finances pour 2027."
+ },
+ {
   "id": "2026-10-01-08h00",
   "libelle": "jeudi 1 octobre 2026, 8 h",
   "total": 11,
