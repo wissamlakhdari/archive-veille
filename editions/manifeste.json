@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-02-08h00",
+  "libelle": "vendredi 2 octobre 2026, 8 h",
+  "total": 10,
+  "date": "2026-10-02",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 2,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "vendredi",
+  "pdf": "pdf/2026-10-02-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 6
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence",
+    "n": 1
+   }
+  ],
+  "extrait": "Face à la flambée record du gazole dans l'Union européenne, Washington exhorte les Européens à mobiliser leurs stocks stratégiques pour détendre les cours."
+ },
+ {
   "id": "2026-10-01-14h10",
   "libelle": "jeudi 1 octobre 2026, 14 h 10",
   "total": 7,
