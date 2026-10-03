@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-03-20h54",
+  "libelle": "samedi 3 octobre 2026, 20 h 54",
+  "total": 81,
+  "date": "2026-10-03",
+  "heure": 20,
+  "minute": 54,
+  "horaire": "20 h 54",
+  "jour": 3,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-10-03-20h54.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 44
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 35
+   },
+   {
+    "nom": "Concurrence",
+    "n": 2
+   }
+  ],
+  "extrait": "Les cours du pétrole brut ont enregistré une baisse consécutive à l'approbation européenne concernant les stocks de diesel."
+ },
+ {
   "id": "2026-10-03-14h10",
   "libelle": "samedi 3 octobre 2026, 14 h 10",
   "total": 5,
