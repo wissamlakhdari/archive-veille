@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-03-08h00",
+  "libelle": "samedi 3 octobre 2026, 8 h",
+  "total": 16,
+  "date": "2026-10-03",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 3,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-10-03-08h00.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 11
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 5
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le projet du gazoduc transsaharien bénéficie du soutien explicite du secrétaire général de l'OPEP."
+ },
+ {
   "id": "2026-10-02-14h10",
   "libelle": "vendredi 2 octobre 2026, 14 h 10",
   "total": 5,
