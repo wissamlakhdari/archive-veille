@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-03-14h10",
+  "libelle": "samedi 3 octobre 2026, 14 h 10",
+  "total": 5,
+  "date": "2026-10-03",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 3,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-10-03-14h10.pdf",
+  "nb_sources": 7,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 3
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "L'Agence internationale de l'énergie a coordonné la libération d'une large partie des stocks stratégiques de brut et de produits pétroliers prévus par le G7 afin de faire face aux tensions sur l'approvisionnement."
+ },
+ {
   "id": "2026-10-03-08h00",
   "libelle": "samedi 3 octobre 2026, 8 h",
   "total": 16,
