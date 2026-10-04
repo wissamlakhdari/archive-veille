@@ -311,6 +311,7 @@ select option { color: #16242A; background: #fff; }
   color: var(--doux); font-size: .9rem; line-height: 1.6;
 }
 .notes p { margin: 0 0 .25rem; }
+.notes .lien-fiche { color: var(--encre); font-weight: 600; text-underline-offset: 2px; }
 
 /* ---------- mobile ---------- */
 @media (max-width: 800px) {
@@ -959,6 +960,15 @@ select option { color: #16242A; background: #fff; }
     (src.remarques || []).forEach(function (r) { f.appendChild(el("p", null, r)); });
     if (etat.edition.modele) {
       f.appendChild(el("p", null, "Résumés rédigés automatiquement à partir de chaque article."));
+    }
+    if (etat.edition.fiche_sources) {
+      var p = el("p");
+      var a = el("a", "lien-fiche", "Comment chaque source a été lue lors de cette édition (PDF)");
+      a.href = etat.edition.fiche_sources;
+      a.target = "_blank";
+      a.rel = "noopener";
+      p.appendChild(a);
+      f.appendChild(p);
     }
   }
 

@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-04-16h55",
+  "libelle": "dimanche 4 octobre 2026, 16 h 55",
+  "total": 3,
+  "date": "2026-10-04",
+  "heure": 16,
+  "minute": 55,
+  "horaire": "16 h 55",
+  "jour": 4,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-10-04-16h55.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 3
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le chef de l'État indique que le taux de progression de l'économie du pays devrait atteindre un niveau compris entre 4,01 et 4,02 %."
+ },
+ {
   "id": "2026-10-04-16h01",
   "libelle": "dimanche 4 octobre 2026, 16 h 01",
   "total": 17,
