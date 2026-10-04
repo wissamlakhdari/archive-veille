@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-04-16h01",
+  "libelle": "dimanche 4 octobre 2026, 16 h 01",
+  "total": 17,
+  "date": "2026-10-04",
+  "heure": 16,
+  "minute": 1,
+  "horaire": "16 h 01",
+  "jour": 4,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-10-04-16h01.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 16
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Le chef de l'État a souligné que les dossiers d'investissement validés permettront d'accroître la production nationale."
+ },
+ {
   "id": "2026-10-04-14h10",
   "libelle": "dimanche 4 octobre 2026, 14 h 10",
   "total": 18,
