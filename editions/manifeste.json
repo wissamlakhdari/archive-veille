@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-04-08h00",
+  "libelle": "dimanche 4 octobre 2026, 8 h",
+  "total": 33,
+  "date": "2026-10-04",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 4,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-10-04-08h00.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 31
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Des avertissements ont ete formules par la presidence de la Republique."
+ },
+ {
   "id": "2026-10-03-20h54",
   "libelle": "samedi 3 octobre 2026, 20 h 54",
   "total": 81,
