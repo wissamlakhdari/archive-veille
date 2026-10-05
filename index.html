@@ -303,6 +303,8 @@ select option { color: #16242A; background: #fff; }
 .sources a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .sources .meta { display: block; color: var(--doux); font-size: .9rem; margin-top: .2rem; }
 .sources .resume-article { margin: .4rem 0 0; font: 400 1rem/1.55 var(--serif); color: var(--texte); max-width: 64ch; }
+.sources .justif { display: block; margin-top: .3rem; font-size: .88rem; color: var(--doux); }
+.sources .justif b { color: var(--texte); font-weight: 600; }
 .sources .aussi { display: block; margin-top: .3rem; font-size: .88rem; color: var(--doux); font-style: italic; }
 
 .message { font: 400 1.1rem/1.6 var(--serif); color: var(--doux); padding: 2rem 0; max-width: 52ch; }
@@ -933,6 +935,12 @@ select option { color: #16242A; background: #fff; }
         if (art.resume) bloc.appendChild(el("p", "resume-article", art.resume));
         if (art.aussi && art.aussi.length) {
           bloc.appendChild(el("span", "aussi", "Aussi couvert par : " + art.aussi.join(", ")));
+        }
+        if (art.justif) {
+          var j = el("span", "justif");
+          j.appendChild(el("b", null, art.justif[0] + " : "));
+          j.appendChild(document.createTextNode(art.justif[1]));
+          bloc.appendChild(j);
         }
         li.appendChild(bloc);
         ol.appendChild(li);

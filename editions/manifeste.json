@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-05-15h16",
+  "libelle": "lundi 5 octobre 2026, 15 h 16",
+  "total": 3,
+  "date": "2026-10-05",
+  "heure": 15,
+  "minute": 16,
+  "horaire": "15 h 16",
+  "jour": 5,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-05-15h16.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Les organisations professionnelles et de protection des consommateurs soutiennent les initiatives étatiques de régulation des tarifs et de préservation du pouvoir d'achat."
+ },
+ {
   "id": "2026-10-05-14h10",
   "libelle": "lundi 5 octobre 2026, 14 h 10",
   "total": 13,
