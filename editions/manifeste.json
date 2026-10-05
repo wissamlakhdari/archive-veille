@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-05-08h00",
+  "libelle": "lundi 5 octobre 2026, 8 h",
+  "total": 29,
+  "date": "2026-10-05",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 5,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-05-08h00.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 24
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 5
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "L'exécutif algérien réaffirme son engagement constant à protéger le pouvoir d'achat de la population."
+ },
+ {
   "id": "2026-10-04-16h55",
   "libelle": "dimanche 4 octobre 2026, 16 h 55",
   "total": 3,
