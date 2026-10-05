@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-05-14h10",
+  "libelle": "lundi 5 octobre 2026, 14 h 10",
+  "total": 13,
+  "date": "2026-10-05",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 5,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-05-14h10.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 10
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "L'OPEP+ a choisi de conserver les volumes de production actuels des sept nations pratiquant des ajustements volontaires, maintenant ainsi le quota algérien à 1,007 million de barils par jour."
+ },
+ {
   "id": "2026-10-05-08h00",
   "libelle": "lundi 5 octobre 2026, 8 h",
   "total": 29,
