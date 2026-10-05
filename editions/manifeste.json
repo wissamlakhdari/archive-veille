@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-05-15h36",
+  "libelle": "lundi 5 octobre 2026, 15 h 36",
+  "total": 4,
+  "date": "2026-10-05",
+  "heure": 15,
+  "minute": 36,
+  "horaire": "15 h 36",
+  "jour": 5,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-05-15h36.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "La quatorzième édition du salon NAPEC a officiellement débuté dans la ville d'Oran."
+ },
+ {
   "id": "2026-10-05-15h16",
   "libelle": "lundi 5 octobre 2026, 15 h 16",
   "total": 3,
