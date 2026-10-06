@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-06-08h00",
+  "libelle": "mardi 6 octobre 2026, 8 h",
+  "total": 32,
+  "date": "2026-10-06",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 6,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mardi",
+  "pdf": "pdf/2026-10-06-08h00.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 23
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 8
+   },
+   {
+    "nom": "Concurrence",
+    "n": 1
+   }
+  ],
+  "extrait": "Le chef de l'Etat a réaffirmé son engagement concernant la revalorisation des rémunérations à l'horizon 2027."
+ },
+ {
   "id": "2026-10-05-15h36",
   "libelle": "lundi 5 octobre 2026, 15 h 36",
   "total": 4,
