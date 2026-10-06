@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-06-14h10",
+  "libelle": "mardi 6 octobre 2026, 14 h 10",
+  "total": 17,
+  "date": "2026-10-06",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 6,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mardi",
+  "pdf": "pdf/2026-10-06-14h10.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 11
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 6
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "Sonatrach et l'entreprise PTT Exploration and Production ont conclu un protocole d'accord."
+ },
+ {
   "id": "2026-10-06-08h00",
   "libelle": "mardi 6 octobre 2026, 8 h",
   "total": 32,
