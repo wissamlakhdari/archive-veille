@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-07-20h41",
+  "libelle": "mercredi 7 octobre 2026, 20 h 41",
+  "total": 73,
+  "date": "2026-10-07",
+  "heure": 20,
+  "minute": 41,
+  "horaire": "20 h 41",
+  "jour": 7,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-10-07-20h41.pdf",
+  "nb_sources": 52,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 5
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 1
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 17
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 6
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 9
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 1
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 2
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 21
+   }
+  ],
+  "extrait": "L'achèvement du plan d'urgence destiné à la remise en état de l'autoroute Est-Ouest est programmé pour la fin de l'année 2029."
+ },
+ {
   "id": "2026-10-07-14h10",
   "libelle": "mercredi 7 octobre 2026, 14 h 10",
   "total": 25,

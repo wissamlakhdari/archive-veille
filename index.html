@@ -296,6 +296,8 @@ select option { color: #16242A; background: #fff; }
   display: grid; grid-template-columns: 2.4rem 1fr; gap: .2rem;
   padding: .7rem 0; border-top: 1px solid var(--filet);
 }
+.sources li.groupe-suggestions { display: block; padding: 1.1rem 0 .35rem; font-size: .78rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--doux); font-weight: 600; }
 .sources li.vise { animation: vise 1.6s ease-out; }
 @keyframes vise { 0%, 35% { background: color-mix(in srgb, var(--theme) 16%, transparent); } 100% { background: transparent; } }
 .sources .num { color: var(--doux); font-variant-numeric: tabular-nums; font-size: .92rem; padding-top: .1rem; }
@@ -928,6 +930,9 @@ select option { color: #16242A; background: #fff; }
       var ol = el("ol", "sources");
       ol.setAttribute("aria-label", "Articles cités, " + t.nom);
       t.articles.forEach(function (art, k) {
+        if (art.suggestion && !(k > 0 && t.articles[k - 1].suggestion)) {
+          ol.appendChild(el("li", "groupe-suggestions", "Suggestions de l'IA (aucun mot-clé trouvé)"));
+        }
         var li = el("li");
         li.id = ancre + "-" + (k + 1);
         li.appendChild(el("span", "num", "[" + (k + 1) + "]"));
