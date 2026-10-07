@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-07-21h19",
+  "libelle": "mercredi 7 octobre 2026, 21 h 19",
+  "total": 97,
+  "date": "2026-10-07",
+  "heure": 21,
+  "minute": 19,
+  "horaire": "21 h 19",
+  "jour": 7,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-10-07-21h19.pdf",
+  "nb_sources": 52,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 6
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 6
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 2
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 17
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 5
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 13
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 1
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 3
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 34
+   }
+  ],
+  "extrait": "Le programme d'urgence visant à réparer environ 190 kilomètres de l'autoroute Est-Ouest sera finalisé d'ici la fin de l'année 2029."
+ },
+ {
   "id": "2026-10-07-20h41",
   "libelle": "mercredi 7 octobre 2026, 20 h 41",
   "total": 73,

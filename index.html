@@ -243,7 +243,18 @@ select option { color: #16242A; background: #fff; }
 .onglets {
   position: sticky; top: calc(4.2rem + env(safe-area-inset-top, 0px));
   align-self: start; display: flex; flex-direction: column; gap: .35rem;
+  /* la liste des thematiques a sa propre barre de defilement : elle reste entierement
+     accessible sans faire defiler la page, quel que soit le nombre de thematiques */
+  max-height: calc(100vh - 5.4rem - env(safe-area-inset-top, 0px));
+  overflow-y: auto; overscroll-behavior: contain; padding-right: .35rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--doux) 70%, transparent) color-mix(in srgb, var(--filet) 55%, transparent);
 }
+.onglets::-webkit-scrollbar { width: 8px; }
+.onglets::-webkit-scrollbar-track { background: color-mix(in srgb, var(--filet) 55%, transparent); border-radius: 4px; }
+.onglets::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--doux) 70%, transparent); border-radius: 4px; }
+.onglets::-webkit-scrollbar-thumb:hover { background: var(--encre); }
+.onglet { flex: 0 0 auto; }
 .onglet {
   --c: var(--neutre);
   appearance: none; cursor: pointer; text-align: left; width: 100%;
@@ -349,7 +360,7 @@ select option { color: #16242A; background: #fff; }
   .corps { display: block; padding-top: 0; }
   .onglets {
     top: 0; padding-top: calc(.7rem + env(safe-area-inset-top, 0px)); z-index: 4;
-    flex-direction: row; overflow-x: auto; gap: .4rem;
+    flex-direction: row; overflow-x: auto; overflow-y: hidden; max-height: none; gap: .4rem;
     margin: 0 -1rem 1.6rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: .7rem;
     background: var(--papier); border-bottom: 1px solid var(--filet);
     scrollbar-width: none;
@@ -1009,6 +1020,15 @@ select option { color: #16242A; background: #fff; }
       a.rel = "noopener";
       p.appendChild(a);
       f.appendChild(p);
+    }
+    if (etat.edition.fiche_tri) {
+      var p2 = el("p");
+      var a2 = el("a", "lien-fiche", "Tri des articles : ce que l'IA a retenu, proposé ou écarté, et pourquoi (PDF)");
+      a2.href = etat.edition.fiche_tri;
+      a2.target = "_blank";
+      a2.rel = "noopener";
+      p2.appendChild(a2);
+      f.appendChild(p2);
     }
   }
 
