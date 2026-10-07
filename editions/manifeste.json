@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-07-14h10",
+  "libelle": "mercredi 7 octobre 2026, 14 h 10",
+  "total": 25,
+  "date": "2026-10-07",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 7,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-10-07-14h10.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 14
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 11
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "L'Autorité de régulation des hydrocarbures annonce l'entrée en service prochaine d'un data center destiné à l'analyse des données de la filière et poursuit le déploiement de sa plateforme numérique de gestion."
+ },
+ {
   "id": "2026-10-07-08h00",
   "libelle": "mercredi 7 octobre 2026, 8 h",
   "total": 50,

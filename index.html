@@ -305,6 +305,11 @@ select option { color: #16242A; background: #fff; }
 .sources .resume-article { margin: .4rem 0 0; font: 400 1rem/1.55 var(--serif); color: var(--texte); max-width: 64ch; }
 .sources .justif { display: block; margin-top: .3rem; font-size: .88rem; color: var(--doux); }
 .sources .justif b { color: var(--texte); font-weight: 600; }
+.sources .lies { margin-top: .45rem; font-size: .88rem; color: var(--doux); }
+.sources .lies b { color: var(--texte); font-weight: 600; }
+.sources .lies ul { margin: .2rem 0 0; padding-left: 1.1rem; }
+.sources .lies li { display: list-item; margin: .15rem 0; padding: 0; border-top: 0; }
+.sources .lies a { font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
 .sources .aussi { display: block; margin-top: .3rem; font-size: .88rem; color: var(--doux); font-style: italic; }
 
 .message { font: 400 1.1rem/1.6 var(--serif); color: var(--doux); padding: 2rem 0; max-width: 52ch; }
@@ -933,8 +938,30 @@ select option { color: #16242A; background: #fff; }
         bloc.appendChild(titre);
         bloc.appendChild(el("span", "meta", [art.source, art.date].filter(Boolean).join(", ")));
         if (art.resume) bloc.appendChild(el("p", "resume-article", art.resume));
-        if (art.aussi && art.aussi.length) {
+        if (art.lies && art.lies.length) {
+          var boite = el("div", "lies");
+          boite.appendChild(el("b", null, "Aussi couvert par :"));
+          var ul = el("ul");
+          art.lies.forEach(function (m) {
+            var item = el("li");
+            item.appendChild(document.createTextNode(m.source + " — "));
+            var u = lienSur(m.lien);
+            var t = el(u ? "a" : "span", null, m.titre);
+            if (u) { t.href = u; t.target = "_blank"; t.rel = "noopener noreferrer"; }
+            item.appendChild(t);
+            if (m.date) item.appendChild(document.createTextNode(" (" + m.date + ")"));
+            ul.appendChild(item);
+          });
+          boite.appendChild(ul);
+          bloc.appendChild(boite);
+        } else if (art.aussi && art.aussi.length) {
           bloc.appendChild(el("span", "aussi", "Aussi couvert par : " + art.aussi.join(", ")));
+        }
+        if (art.differences) {
+          var df = el("span", "justif");
+          df.appendChild(el("b", null, "Différences : "));
+          df.appendChild(document.createTextNode(art.differences));
+          bloc.appendChild(df);
         }
         if (art.justif) {
           var j = el("span", "justif");
