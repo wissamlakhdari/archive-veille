@@ -1,5 +1,35 @@
 [
  {
+  "id": "2026-10-07-08h00",
+  "libelle": "mercredi 7 octobre 2026, 8 h",
+  "total": 50,
+  "date": "2026-10-07",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 7,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-10-07-08h00.pdf",
+  "nb_sources": 25,
+  "themes": [
+   {
+    "nom": "Économie",
+    "n": 37
+   },
+   {
+    "nom": "Transition énergétique",
+    "n": 13
+   },
+   {
+    "nom": "Concurrence",
+    "n": 0
+   }
+  ],
+  "extrait": "L'Agence américaine d'information sur l'énergie a rehaussé ses projections concernant les cours du Brent pour la fin de l'année 2026 ainsi que pour l'exercice suivant."
+ },
+ {
   "id": "2026-10-06-14h10",
   "libelle": "mardi 6 octobre 2026, 14 h 10",
   "total": 17,
