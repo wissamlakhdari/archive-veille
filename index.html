@@ -114,6 +114,13 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .tops a:first-child{border-top:0;padding-top:2px}
 .tops a b{font-weight:500;font-size:16px;line-height:1.35;transition:color .2s}
 .tops a:hover b{color:var(--amber)}
+.tligne{display:flex;align-items:center;gap:10px;width:100%;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);text-align:left;color:rgba(255,255,255,.85);font-size:14.5px}
+.tligne:first-child{border-top:0;padding-top:0}
+.tligne i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:0 0 auto}
+.tligne span{flex:1 1 auto;min-width:0}
+.tligne b{font:500 13px var(--mono);color:#fff}
+.tligne:hover span{color:var(--amber)}
+.tplus{margin:0;padding-top:10px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;color:rgba(255,255,255,.6)}
 .tchip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--muted)}
 .tchip i{width:7px;height:7px;border-radius:50%;background:var(--c)}
 .hero .tchip,.feature .tchip{color:rgba(255,255,255,.72)}
@@ -741,7 +748,7 @@ window.veilleIndex = function (liste) {
   $("live-t").textContent = "Mis à jour " + (d.date === now.iso ? "à " : "le " + d.jour + " " + d.mois + " à ") + d.horaire;
   $("foot-maj").textContent = "Dernière édition : " + d.jour_semaine + " " + d.jour + " " + d.mois + " " + d.annee + ", " + d.horaire;
   chargerEdition(d.id, function (ed) {
-    if (ed) { etat.derniere = ed; dessinerAccueil(ed); if (etat.vue === "home") majPdf($("pdf"), ed); }
+    if (ed) { etat.derniere = ed; dessinerAccueil(ed); chargerFilDuJour(ed); if (etat.vue === "home") majPdf($("pdf"), ed); }
   });
   aiguiller();
 };
@@ -764,31 +771,14 @@ function dessinerAccueil(ed) {
   pile($("heroStack"), ed.themes);
   var tops = $("tops"); tops.textContent = "";
   var parTaille = actifs.slice().sort(function (a, b) { return b.articles.length - a.articles.length; });
-  parTaille.slice(0, 3).forEach(function (t) {
-    var art = t.articles[0], u = safe(art.lien);
-    var a = el(u ? "a" : "div"); if (u) lienExterne(a, u);
-    a.appendChild(tchip(t)); a.appendChild(el("b", null, art.titre)); tops.appendChild(a);
+  var MAXT = 7;
+  parTaille.slice(0, parTaille.length > MAXT + 1 ? MAXT : parTaille.length).forEach(function (t) {
+    var b = el("button", "tligne"); b.type = "button"; b.style.setProperty("--c", t.c);
+    b.appendChild(el("i")); b.appendChild(el("span", null, t.nom)); b.appendChild(el("b", null, String(t.articles.length)));
+    b.addEventListener("click", function () { location.hash = ancre(ed.id, t.nom); });
+    tops.appendChild(b);
   });
-
-  // bandeau des titres
-  var items = [];
-  actifs.forEach(function (t) { t.articles.slice(0, 3).forEach(function (a) { items.push([a, t]); }); });
-  var tr = $("ticker"); tr.textContent = "";
-  if (items.length >= 4) {
-    for (var pass = 0; pass < 2; pass++) {
-      items.forEach(function (x) {
-        var u = safe(x[0].lien), a = el("a");
-        if (u) lienExterne(a, u);
-        a.style.setProperty("--c", x[1].c);
-        if (pass) { a.setAttribute("aria-hidden", "true"); a.tabIndex = -1; }
-        a.appendChild(document.createTextNode(x[0].titre)); a.appendChild(el("em", null, srcCourt(x[0])));
-        tr.appendChild(a);
-      });
-    }
-    // vitesse constante, quelle que soit la longueur du fil (environ 65 pixels par seconde)
-    requestAnimationFrame(function () { tr.style.animationDuration = Math.max(60, Math.round(tr.scrollWidth / 2 / 65)) + "s"; });
-    $("ticker-box").hidden = false;
-  } else $("ticker-box").hidden = true;
+  if (parTaille.length > MAXT + 1) tops.appendChild(el("p", "tplus", "et " + pluriel(parTaille.length - MAXT, "autre thématique")));
 
   // les points cles : premier article des thematiques les plus fournies
   var une = parTaille.map(function (t) { return { a: t.articles[0], t: t }; });
@@ -817,6 +807,50 @@ function dessinerAccueil(ed) {
   var side = $("side"); side.textContent = ""; une.slice(1, 3).forEach(function (x, i) { side.appendChild(carte(x, i + 1)); });
   var row = $("row3"); row.textContent = ""; une.slice(3, 6).forEach(function (x, i) { row.appendChild(carte(x, i, true)); });
   if (etat.vue === "home") armReveals($("home"));
+}
+
+/* ---------- fil des titres : tous les articles du jour, toutes editions confondues ---------- */
+function construireFil(eds) {
+  var items = [], vus = {};
+  eds.forEach(function (ed) {
+    ed.themes.forEach(function (t) {
+      t.articles.forEach(function (a) {
+        var cle = a.lien || a.titre;
+        if (vus[cle]) return;
+        vus[cle] = 1; items.push([a, t]);
+      });
+    });
+  });
+  var tr = $("ticker"); tr.textContent = "";
+  if (!items.length) { $("ticker-box").hidden = true; return; }
+  // peu d'articles : la liste est repetee pour que le fil remplisse toujours la largeur
+  var base = items.slice();
+  while (items.length < 10) items = items.concat(base);
+  for (var pass = 0; pass < 2; pass++) {
+    items.forEach(function (x) {
+      var u = safe(x[0].lien), a = el("a");
+      if (u) lienExterne(a, u);
+      a.style.setProperty("--c", x[1].c);
+      if (pass) { a.setAttribute("aria-hidden", "true"); a.tabIndex = -1; }
+      a.appendChild(document.createTextNode(x[0].titre)); a.appendChild(el("em", null, srcCourt(x[0])));
+      tr.appendChild(a);
+    });
+  }
+  $("ticker-box").hidden = false;
+  // vitesse constante, quelle que soit la longueur du fil (environ 65 pixels par seconde)
+  requestAnimationFrame(function () { tr.style.animationDuration = Math.max(60, Math.round(tr.scrollWidth / 2 / 65)) + "s"; });
+}
+function chargerFilDuJour(derniere) {
+  var duJour = etat.index.filter(function (e) { return e.date === etat.index[0].date; });
+  var recus = {}, reste = duJour.length;
+  function fin() {
+    if (--reste > 0) return;
+    construireFil(duJour.map(function (e) { return recus[e.id]; }).filter(Boolean));   // la plus recente d'abord
+  }
+  duJour.forEach(function (e) {
+    if (e.id === derniere.id) { recus[e.id] = derniere; fin(); return; }
+    chargerEdition(e.id, function (ed) { if (ed) recus[e.id] = ed; fin(); });
+  });
 }
 
 /* ---------- archives : calendrier et liste par jour ---------- */
