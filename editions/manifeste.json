@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-08-18h03",
+  "libelle": "jeudi 8 octobre 2026, 18 h 03",
+  "total": 3,
+  "date": "2026-10-08",
+  "heure": 18,
+  "minute": 3,
+  "horaire": "18 h 03",
+  "jour": 8,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "jeudi",
+  "pdf": "pdf/2026-10-08-18h03.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Le texte mentionne l'examen d'un projet de loi modifiant le Code pénal par la Commission des affaires juridiques du Conseil de la nation."
+ },
+ {
   "id": "2026-10-08-17h44",
   "libelle": "jeudi 8 octobre 2026, 17 h 44",
   "total": 6,
