@@ -161,11 +161,12 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .card h3{font:500 21.5px/1.18 var(--serif);letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
 .card-sm h3{font-size:18.9px}
+.ed-mark{justify-self:start;font:500 11px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 .badge{justify-self:start;display:inline-flex;gap:6px;align-items:center;font-size:11.2px;font-weight:600;color:var(--amber-ink);background:var(--tint);padding:5px 10px;border-radius:999px}
 .feature{--mx:70%;--my:20%;position:relative;overflow:hidden;border-radius:24px;padding:35px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;gap:18px;min-height:460px;
   background:radial-gradient(520px circle at var(--mx) var(--my),rgba(240,169,59,.22),transparent 60%),linear-gradient(150deg,var(--feature),var(--ink));box-shadow:var(--shadow-hi);transition:transform .4s var(--ease)}
 .feature:hover{transform:translateY(-4px)}
-.feature h3{font:400 clamp(21.6px,3.4vw,33.1px)/1.06 var(--serif);letter-spacing:-.02em;max-width:15ch}
+.feature h3{font:400 clamp(21.6px,3.4vw,33.1px)/1.06 var(--serif);letter-spacing:-.02em;max-width:28ch}
 .feature p{margin:0;font:400 16.3px/1.55 var(--serif);color:rgba(255,255,255,.72);max-width:36em}
 .feature .meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .tag{display:inline-flex;gap:7px;align-items:center;padding:6px 12px;border-radius:999px;background:rgba(201,154,46,.2);color:#F1C76A;font-weight:600;font-size:11.6px}
@@ -456,7 +457,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
     <div class="nav-r">
       <span class="live" id="live" hidden><i></i><span id="live-t"></span></span>
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Passer en mode sombre" title="Mode sombre"><span class="ico-moon">☾</span><span class="ico-sun">☀</span></button>
-      <a class="btn btn-white" id="pdf" aria-disabled="true">Télécharger le PDF</a>
+      <a class="btn btn-white" id="pdf" aria-disabled="true" hidden>Télécharger le PDF</a>
       <button class="menu-btn" type="button" aria-label="Édition du jour" data-go="latest">≡</button>
     </div>
   </div>
@@ -690,8 +691,8 @@ function montrer(vue) {
     if (!ed) { document.title = "Veille stratégique"; armReveals($("home")); }
   }
   etat.vue = vue;
-  var pdfSrc = ed ? etat.edition : etat.derniere;
-  majPdf($("pdf"), pdfSrc);
+  majPdf($("pdf"), ed ? etat.edition : null);
+  $("pdf").hidden = !ed;
   $("lien-jour").classList.toggle("on", ed && etat.edition && etat.index.length && etat.edition.id === etat.index[0].id);
   navState();
 }
@@ -748,7 +749,7 @@ window.veilleIndex = function (liste) {
   $("live-t").textContent = "Mis à jour " + (d.date === now.iso ? "à " : "le " + d.jour + " " + d.mois + " à ") + d.horaire;
   $("foot-maj").textContent = "Dernière édition : " + d.jour_semaine + " " + d.jour + " " + d.mois + " " + d.annee + ", " + d.horaire;
   chargerEdition(d.id, function (ed) {
-    if (ed) { etat.derniere = ed; dessinerAccueil(ed); chargerFilDuJour(ed); if (etat.vue === "home") majPdf($("pdf"), ed); }
+    if (ed) { etat.derniere = ed; dessinerAccueil(ed); chargerFilDuJour(ed); }
   });
   aiguiller();
 };
@@ -780,17 +781,46 @@ function dessinerAccueil(ed) {
   });
   if (parTaille.length > MAXT + 1) tops.appendChild(el("p", "tplus", "et " + pluriel(parTaille.length - MAXT, "autre thématique")));
 
-  // les points cles : premier article des thematiques les plus fournies
-  var une = parTaille.map(function (t) { return { a: t.articles[0], t: t }; });
+}
+
+/* ---------- les points cles de la journee (toutes les editions du jour) ----------
+   Un article par thematique, les thematiques les plus fournies de la journee d'abord.
+   Dans chaque thematique : l'article couvert par le plus de sources, puis trouve par les
+   mots-cles (plutot que suggere par l'IA), puis resume, puis le plus recent. */
+function dessinerUne(eds) {
+  var parTheme = {}, ordreT = [], vus = {};
+  eds.forEach(function (ed, rang) {
+    ed.themes.forEach(function (t) {
+      t.articles.forEach(function (a) {
+        var cle = a.lien || a.titre;
+        if (vus[cle]) return;
+        vus[cle] = 1;
+        if (!parTheme[t.nom]) { parTheme[t.nom] = { t: t, items: [] }; ordreT.push(t.nom); }
+        parTheme[t.nom].items.push({ a: a, t: t, ed: ed, rang: rang });
+      });
+    });
+  });
+  function poids(x) { return [((x.a.lies || []).length + (x.a.aussi || []).length), x.a.suggestion ? 0 : 1, x.a.resume ? 1 : 0, -x.rang]; }
+  function compare(p, q) { for (var k = 0; k < p.length; k++) { if (p[k] !== q[k]) return q[k] - p[k]; } return 0; }
+  var themes = ordreT.map(function (n) { return parTheme[n]; }).sort(function (x, y) { return y.items.length - x.items.length; });
+  var une = themes.map(function (g) { return g.items.slice().sort(function (x, y) { return compare(poids(x), poids(y)); })[0]; });
+  une = une.slice(0, 6);
   if (!une.length) { $("une").hidden = true; return; }
+  // l'article le plus marquant prend la grande carte
+  var tete = une.slice().sort(function (x, y) { return compare(poids(x), poids(y)); })[0];
+  une = [tete].concat(une.filter(function (x) { return x !== tete; }));
+  var d = eds[0];
   $("une").hidden = false;
-  $("une-ey").textContent = "Édition du " + ed.jour + " " + ed.mois + " · " + horaire(ed);
-  $("une-more").textContent = ""; $("une-more").appendChild(document.createTextNode("Voir les " + pluriel(ed.total, "article") + " ")); $("une-more").appendChild(el("span", null, "→"));
+  $("une-ey").textContent = eds.length > 1 ? "Journée du " + d.jour + " " + d.mois + " · " + eds.length + " éditions" : "Édition du " + d.jour + " " + d.mois + " · " + horaire(d);
+  var more = $("une-more"); more.textContent = "";
+  more.appendChild(document.createTextNode(eds.length > 1 ? "Voir les éditions du jour " : "Voir les " + pluriel(d.total, "article") + " "));
+  more.appendChild(el("span", null, "→"));
+  function marque(x) { return eds.length > 1 ? "Édition de " + horaire(x.ed) : ""; }
   var L = $("lead"); L.textContent = "";
   var r = une[0], u = safe(r.a.lien);
   if (u) L.href = u; else L.removeAttribute("href");
   var m = el("div", "meta"); var tg = el("span", "tag"); tg.appendChild(el("i")); tg.appendChild(document.createTextNode(r.t.nom)); m.appendChild(tg);
-  m.appendChild(el("span", "src", (srcCourt(r.a) + (r.a.date ? " · " + r.a.date : "")).toUpperCase())); L.appendChild(m);
+  m.appendChild(el("span", "src", (srcCourt(r.a) + (r.a.date ? " · " + r.a.date : "") + (marque(r) ? " · " + marque(r) : "")).toUpperCase())); L.appendChild(m);
   L.appendChild(el("h3", null, r.a.titre));
   if (r.a.resume) L.appendChild(el("p", null, r.a.resume));
   if (u) { var rd = el("span", "read", "Lire l’article "); rd.appendChild(el("span", null, "↗")); L.appendChild(rd); }
@@ -802,6 +832,7 @@ function dessinerAccueil(ed) {
     c.appendChild(el("h3", null, x.a.titre));
     if (!petite && x.a.resume) c.appendChild(el("p", null, phrase(x.a.resume)));
     if (x.a.suggestion) c.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
+    if (marque(x)) c.appendChild(el("span", "ed-mark", marque(x)));
     return c;
   }
   var side = $("side"); side.textContent = ""; une.slice(1, 3).forEach(function (x, i) { side.appendChild(carte(x, i + 1)); });
@@ -845,7 +876,9 @@ function chargerFilDuJour(derniere) {
   var recus = {}, reste = duJour.length;
   function fin() {
     if (--reste > 0) return;
-    construireFil(duJour.map(function (e) { return recus[e.id]; }).filter(Boolean));   // la plus recente d'abord
+    var eds = duJour.map(function (e) { return recus[e.id]; }).filter(Boolean);   // la plus recente d'abord
+    construireFil(eds);
+    dessinerUne(eds);
   }
   duJour.forEach(function (e) {
     if (e.id === derniere.id) { recus[e.id] = derniere; fin(); return; }
