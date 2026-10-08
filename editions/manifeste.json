@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-08-18h57",
+  "libelle": "jeudi 8 octobre 2026, 18 h 57",
+  "total": 1,
+  "date": "2026-10-08",
+  "heure": 18,
+  "minute": 57,
+  "horaire": "18 h 57",
+  "jour": 8,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "jeudi",
+  "pdf": "pdf/2026-10-08-18h57.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 1
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "La seconde édition du salon FormaTech Expo se déroulera du 12 au 15 octobre 2026 au Palais des Expositions de la SAFEX à Alger autour de l'adaptation des compétences professionnelles face aux innovations technologiques."
+ },
+ {
   "id": "2026-10-08-18h41",
   "libelle": "jeudi 8 octobre 2026, 18 h 41",
   "total": 9,
