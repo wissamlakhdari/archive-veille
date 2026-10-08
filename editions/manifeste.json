@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-08-08h00",
+  "libelle": "jeudi 8 octobre 2026, 8 h",
+  "total": 34,
+  "date": "2026-10-08",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 8,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "jeudi",
+  "pdf": "pdf/2026-10-08-08h00.pdf",
+  "nb_sources": 52,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 7
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 6
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 7
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 5
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 2
+   }
+  ],
+  "extrait": "La sélection nationale algérienne des moins de 23 ans entame son parcours qualificatif pour les Jeux olympiques de 2028 en affrontant l'Eswatini."
+ },
+ {
   "id": "2026-10-07-21h19",
   "libelle": "mercredi 7 octobre 2026, 21 h 19",
   "total": 97,
