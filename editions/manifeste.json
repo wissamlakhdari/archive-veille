@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-09-08h00",
+  "libelle": "vendredi 9 octobre 2026, 8 h",
+  "total": 16,
+  "date": "2026-10-09",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 9,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "vendredi",
+  "pdf": "pdf/2026-10-09-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 5
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 2
+   }
+  ],
+  "extrait": "Des travaux d'extension ont été engagés sur le site de l'aéroport Abane-Ramdane."
+ },
+ {
   "id": "2026-10-08-18h57",
   "libelle": "jeudi 8 octobre 2026, 18 h 57",
   "total": 1,
