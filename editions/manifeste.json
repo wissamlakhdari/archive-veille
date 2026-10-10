@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-10-14h10",
+  "libelle": "samedi 10 octobre 2026, 14 h 10",
+  "total": 12,
+  "date": "2026-10-10",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 10,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-10-10-14h10.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 6
+   }
+  ],
+  "extrait": "La cinquième édition de la Conférence africaine des start-up se déroulera du 5 au 7 décembre 2026 au Centre international de conférences d'Alger, placée sous le haut patronage du président de la République."
+ },
+ {
   "id": "2026-10-10-08h00",
   "libelle": "samedi 10 octobre 2026, 8 h",
   "total": 20,
