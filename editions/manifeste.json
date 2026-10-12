@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-12-08h00",
+  "libelle": "lundi 12 octobre 2026, 8 h",
+  "total": 34,
+  "date": "2026-10-12",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 12,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-12-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 5
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 2
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 6
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 5
+   }
+  ],
+  "extrait": "Port de Mostaganem : des marchandises immobilisées depuis...1993 L'Expression"
+ },
+ {
   "id": "2026-10-11-14h10",
   "libelle": "dimanche 11 octobre 2026, 14 h 10",
   "total": 2,
