@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-13-08h00",
+  "libelle": "mardi 13 octobre 2026, 8 h",
+  "total": 57,
+  "date": "2026-10-13",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 13,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mardi",
+  "pdf": "pdf/2026-10-13-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 9
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 8
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 7
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 22
+   }
+  ],
+  "extrait": "Les autorités ont instruit le déplacement de l'importation de véhicules pour les acteurs privés du port de Mostaganem vers celui de Djen Djen avant la fin de l'année 2026."
+ },
+ {
   "id": "2026-10-12-14h10",
   "libelle": "lundi 12 octobre 2026, 14 h 10",
   "total": 15,
