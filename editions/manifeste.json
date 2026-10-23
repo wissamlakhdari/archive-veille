@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-23-08h00",
+  "libelle": "vendredi 23 octobre 2026, 8 h",
+  "total": 25,
+  "date": "2026-10-23",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 23,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "vendredi",
+  "pdf": "pdf/2026-10-23-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 5
+   }
+  ],
+  "extrait": "Le ministre des Travaux publics a présenté l'avancement du projet ferroviaire reliant Alger à Tamanrasset, dont la fin des chantiers est programmée pour fin 2028."
+ },
+ {
   "id": "2026-10-22-14h10",
   "libelle": "jeudi 22 octobre 2026, 14 h 10",
   "total": 35,
