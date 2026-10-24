@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-24-14h10",
+  "libelle": "samedi 24 octobre 2026, 14 h 10",
+  "total": 2,
+  "date": "2026-10-24",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 24,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "samedi",
+  "pdf": "pdf/2026-10-24-14h10.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Quatre societes etrangeres ont ete retenues pour participer aux appels d'offres relatifs aux etudes techniques et au suivi de deux chantiers dans l'aval petrolier."
+ },
+ {
   "id": "2026-10-24-08h00",
   "libelle": "samedi 24 octobre 2026, 8 h",
   "total": 32,
