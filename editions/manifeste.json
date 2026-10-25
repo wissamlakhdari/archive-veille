@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-25-08h00",
+  "libelle": "dimanche 25 octobre 2026, 8 h",
+  "total": 14,
+  "date": "2026-10-25",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 25,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-10-25-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 2
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 1
+   }
+  ],
+  "extrait": "Quatre entreprises publiques nationales se mobilisent pour préparer les terrains et installer les bases logistiques nécessaires au chantier de la ligne ferroviaire reliant Laghouat, El Meniaâ et In Salah."
+ },
+ {
   "id": "2026-10-24-14h10",
   "libelle": "samedi 24 octobre 2026, 14 h 10",
   "total": 2,
