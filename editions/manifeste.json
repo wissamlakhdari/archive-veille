@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-26-08h00",
+  "libelle": "lundi 26 octobre 2026, 8 h",
+  "total": 20,
+  "date": "2026-10-26",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 26,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-10-26-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 3
+   }
+  ],
+  "extrait": "Une réunion ministérielle a permis de définir une méthodologie de coordination et de suivi pour les chantiers d'entretien routier de l'autoroute Est-Ouest et de la deuxième rocade d'Alger."
+ },
+ {
   "id": "2026-10-25-14h10",
   "libelle": "dimanche 25 octobre 2026, 14 h 10",
   "total": 6,
