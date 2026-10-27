@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-10-27-08h00",
+  "libelle": "mardi 27 octobre 2026, 8 h",
+  "total": 16,
+  "date": "2026-10-27",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 27,
+  "mois": "octobre",
+  "annee": 2026,
+  "jour_semaine": "mardi",
+  "pdf": "pdf/2026-10-27-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 10
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 2
+   }
+  ],
+  "extrait": "C’est depuis l’aéroport international d’Alger Houari-Boumediene que s’est envolé, ce lundi 26 octobre 2026, le vol inaugural reliant la capitale Alger à Shanghai."
+ },
+ {
   "id": "2026-10-26-14h10",
   "libelle": "lundi 26 octobre 2026, 14 h 10",
   "total": 12,
