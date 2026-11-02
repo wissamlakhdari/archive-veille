@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-02-14h10",
+  "libelle": "lundi 2 novembre 2026, 14 h 10",
+  "total": 25,
+  "date": "2026-11-02",
+  "heure": 14,
+  "minute": 10,
+  "horaire": "14 h 10",
+  "jour": 2,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-11-02-14h10.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 1
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 11
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 1
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Mise en service et lancement de 95 projets de développement du réseau routier à travers 24 wilayas 2026-11-02"
+ },
+ {
   "id": "2026-11-02-08h00",
   "libelle": "lundi 2 novembre 2026, 8 h",
   "total": 23,
