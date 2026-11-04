@@ -1077,6 +1077,7 @@ function article(a, k, t, anc) {
   var lies = a.lies || [];
   var aussi = (a.aussi || []).filter(function (s) { return !lies.some(function (x) { return x.source === s; }); });
   if (aussi.length) f.appendChild(el("span", null, "· Aussi couvert par " + aussi.join(", ")));
+  if (a.autres_themes && a.autres_themes.length) f.appendChild(el("span", null, "· Concerne aussi : " + a.autres_themes.join(", ")));
   if (f.childNodes.length) b.appendChild(f);
   if (lies.length) {
     var lb = el("div", "lies"); lb.appendChild(el("span", "eyebrow", "Aussi couvert par"));
