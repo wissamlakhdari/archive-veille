@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-08-08h00",
+  "libelle": "dimanche 8 novembre 2026, 8 h",
+  "total": 15,
+  "date": "2026-11-08",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 8,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-11-08-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 1
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Le Premier ministre a inauguré les deux premiers laboratoires d'analyses au port et à l'aéroport d'Alger."
+ },
+ {
   "id": "2026-11-07-14h10",
   "libelle": "samedi 7 novembre 2026, 14 h 10",
   "total": 3,
