@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-09-14h00",
+  "libelle": "lundi 9 novembre 2026, 14 h",
+  "total": 17,
+  "date": "2026-11-09",
+  "heure": 14,
+  "minute": 0,
+  "horaire": "14 h",
+  "jour": 9,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-11-09-14h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 7
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 1
+   }
+  ],
+  "extrait": "Dix-sept nouveaux laboratoires de contrôle sanitaire et de la qualité des produits importés seront implantés au niveau de dix (10) ports et sept (07) aéroports, en plus des postes terrestres, « avec des processus plus rapides en…"
+ },
+ {
   "id": "2026-11-09-08h00",
   "libelle": "lundi 9 novembre 2026, 8 h",
   "total": 21,
