@@ -297,6 +297,8 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .arts{display:grid;gap:14px}
 .art{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;padding:21px 24px;border-radius:20px;background:var(--surface);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
 .art:hover{transform:translateY(-3px);box-shadow:var(--shadow-hi);border-color:color-mix(in srgb,var(--c) 40%,var(--line))}
+.badge.rattr{color:var(--muted);background:var(--surface);border:1px solid var(--line)}
+.badges{display:flex;gap:6px;flex-wrap:wrap;justify-self:start}
 .art.sugg{border-color:color-mix(in srgb,var(--amber) 55%,var(--line))}
 .art.flash{animation:flash 1.8s ease-out}
 @keyframes flash{0%,30%{box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 45%,transparent)}100%{box-shadow:0 0 0 0 transparent}}
@@ -832,6 +834,7 @@ function dessinerUne(eds) {
     c.appendChild(el("h3", null, x.a.titre));
     if (!petite && x.a.resume) c.appendChild(el("p", null, phrase(x.a.resume)));
     if (x.a.suggestion) c.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
+    if (x.a.rattrapage) c.appendChild(el("span", "badge rattr", "↺ Rattrapage" + (x.a.date ? " · publié le " + x.a.date : "")));
     if (marque(x)) c.appendChild(el("span", "ed-mark", marque(x)));
     return c;
   }
@@ -1064,7 +1067,12 @@ function article(a, k, t, anc) {
   var c = el("article", "art" + (a.suggestion ? " sugg" : "")); c.id = anc + "-" + (k + 1); c.style.setProperty("--c", t.c);
   c.appendChild(el("span", "art-n", String(k + 1).padStart(2, "0")));
   var b = el("div", "art-b");
-  if (a.suggestion) b.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
+  if (a.suggestion || a.rattrapage) {
+    var bg = el("div", "badges");
+    if (a.suggestion) bg.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
+    if (a.rattrapage) { var rb = el("span", "badge rattr", "↺ Rattrapage" + (a.date ? " · publié le " + a.date : "")); rb.title = "Article publié pendant l’indisponibilité de la source, récupéré à son retour"; bg.appendChild(rb); }
+    b.appendChild(bg);
+  }
   var h = el("h3"), u = safe(a.lien), ln = el(u ? "a" : "span", null, a.titre); if (u) lienExterne(ln, u); h.appendChild(ln); b.appendChild(h);
   var m = el("div", "art-m"); m.appendChild(el("span", null, a.source || ""));
   if (a.date) { m.appendChild(el("span", null, "·")); m.appendChild(el("span", "mono", a.date)); }
