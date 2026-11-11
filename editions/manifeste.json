@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-11-14h00",
+  "libelle": "mercredi 11 novembre 2026, 14 h",
+  "total": 24,
+  "date": "2026-11-11",
+  "heure": 14,
+  "minute": 0,
+  "horaire": "14 h",
+  "jour": 11,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-11-11-14h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 9
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 6
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Le ministre des Travaux publics a tenu une réunion avec une délégation de la Banque africaine de développement pour examiner les préparatifs de la ligne ferroviaire Laghouat-Ghardaïa-El Meniaa, longue de 495 km et cofinancée avec…"
+ },
+ {
   "id": "2026-11-11-08h00",
   "libelle": "mercredi 11 novembre 2026, 8 h",
   "total": 28,
