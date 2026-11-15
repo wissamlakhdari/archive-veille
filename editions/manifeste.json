@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-15-08h00",
+  "libelle": "dimanche 15 novembre 2026, 8 h",
+  "total": 7,
+  "date": "2026-11-15",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 15,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "dimanche",
+  "pdf": "pdf/2026-11-15-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 0
+   }
+  ],
+  "extrait": "Le complexe sidérurgique Tosyali d'Oran a atteint un volume de production mensuelle record de 235 168 tonnes en septembre grâce à sa première unité de réduction directe."
+ },
+ {
   "id": "2026-11-14-14h00",
   "libelle": "samedi 14 novembre 2026, 14 h",
   "total": 10,
