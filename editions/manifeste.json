@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-16-14h00",
+  "libelle": "lundi 16 novembre 2026, 14 h",
+  "total": 17,
+  "date": "2026-11-16",
+  "heure": 14,
+  "minute": 0,
+  "horaire": "14 h",
+  "jour": 16,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-11-16-14h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 1
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 6
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 5
+   }
+  ],
+  "extrait": "Fiat El Djazaïr enrichit son catalogue local avec une série limitée baptisée Street pour le Doblò Panorama, assemblée à l'usine de Tafraoui."
+ },
+ {
   "id": "2026-11-16-08h00",
   "libelle": "lundi 16 novembre 2026, 8 h",
   "total": 18,
