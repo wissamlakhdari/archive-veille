@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-19-08h00",
+  "libelle": "jeudi 19 novembre 2026, 8 h",
+  "total": 25,
+  "date": "2026-11-19",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 19,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "jeudi",
+  "pdf": "pdf/2026-11-19-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 9
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 5
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 1
+   }
+  ],
+  "extrait": "Une réunion gouvernementale dirigée par le Premier ministre, Sifi Ghrieb, s'est penchée sur l'avancement de la feuille de route dédiée à la généralisation des règlements scripturaux."
+ },
+ {
   "id": "2026-11-18-14h00",
   "libelle": "mercredi 18 novembre 2026, 14 h",
   "total": 24,
