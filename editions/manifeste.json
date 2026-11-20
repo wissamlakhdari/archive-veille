@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-20-08h00",
+  "libelle": "vendredi 20 novembre 2026, 8 h",
+  "total": 17,
+  "date": "2026-11-20",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 20,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "vendredi",
+  "pdf": "pdf/2026-11-20-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 2
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 8
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 0
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 1
+   }
+  ],
+  "extrait": "Le ministre des Travaux publics a exprimé sa satisfaction lors de sa visite des chantiers d'extension du port phosphatier de Annaba, notamment concernant le quai minéralier."
+ },
+ {
   "id": "2026-11-19-14h00",
   "libelle": "jeudi 19 novembre 2026, 14 h",
   "total": 34,
