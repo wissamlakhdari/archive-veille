@@ -771,7 +771,7 @@ function dessinerAccueil(ed) {
   // carte « Derniere edition »
   $("glass").hidden = false;
   $("glass-time").textContent = (ed.jour_semaine || "").slice(0, 3).toUpperCase() + ". " + ed.jour + " " + MOIS_C[MOIS.indexOf(ed.mois)] + " · " + horaire(ed).toUpperCase();
-  $("glass-h").textContent = ed.total ? pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") + " dans " + pluriel(actifs.length, "thématique") : "Aucun article retenu dans cette édition";
+  $("glass-h").textContent = ed.total ? pluriel(ed.total, "article") + " retenu" + (ed.total > 1 ? "s" : "") + " dans " + pluriel(actifs.length, "thématique") : "Aucune nouvelle actualité depuis l’édition précédente";
   pile($("heroStack"), ed.themes);
   var tops = $("tops"); tops.textContent = "";
   var parTaille = actifs.slice().sort(function (a, b) { return b.articles.length - a.articles.length; });
@@ -1134,7 +1134,7 @@ function themeBlock(t, ti, limite) {
 function renderReading(anime) {
   var ed = etat.edition, R = $("reading"); R.textContent = "";
   var actifs = ed.themes.filter(function (t) { return t.articles.length; });
-  if (!actifs.length) { R.appendChild(el("p", "vide", "Aucun article retenu dans cette édition.")); return; }
+  if (!actifs.length) { R.appendChild(el("p", "vide", "Aucune nouvelle actualité n’a été retenue depuis l’édition précédente. Les sources ont été consultées, mais aucun article publié depuis ne correspond à vos axes de veille. Le détail des articles examinés figure dans « Tri des articles », en bas de page. La prochaine édition reprendra normalement.")); return; }
   if (etat.theme === TOUTES) {
     actifs.forEach(function (t, i) { var b = themeBlock(t, ed.themes.indexOf(t), 3); b.style.setProperty("--i", Math.min(i, 4)); R.appendChild(b); });
   } else {
