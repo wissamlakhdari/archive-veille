@@ -297,6 +297,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .arts{display:grid;gap:14px}
 .art{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;padding:21px 24px;border-radius:20px;background:var(--surface);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
 .art:hover{transform:translateY(-3px);box-shadow:var(--shadow-hi);border-color:color-mix(in srgb,var(--c) 40%,var(--line))}
+.badge.doute{color:var(--amber-ink);background:transparent;border:1px dashed var(--amber-ink);font-style:italic}
 .badge.rattr{color:var(--muted);background:var(--surface);border:1px solid var(--line)}
 .badges{display:flex;gap:6px;flex-wrap:wrap;justify-self:start}
 .art.sugg{border-color:color-mix(in srgb,var(--amber) 55%,var(--line))}
@@ -802,7 +803,7 @@ function dessinerUne(eds) {
       });
     });
   });
-  function poids(x) { return [((x.a.lies || []).length + (x.a.aussi || []).length), x.a.suggestion ? 0 : 1, x.a.resume ? 1 : 0, -x.rang]; }
+  function poids(x) { return [x.a.doute ? 0 : 1, ((x.a.lies || []).length + (x.a.aussi || []).length), x.a.suggestion ? 0 : 1, x.a.resume ? 1 : 0, -x.rang]; }
   function compare(p, q) { for (var k = 0; k < p.length; k++) { if (p[k] !== q[k]) return q[k] - p[k]; } return 0; }
   var themes = ordreT.map(function (n) { return parTheme[n]; }).sort(function (x, y) { return y.items.length - x.items.length; });
   var une = themes.map(function (g) { return g.items.slice().sort(function (x, y) { return compare(poids(x), poids(y)); })[0]; });
@@ -834,6 +835,7 @@ function dessinerUne(eds) {
     c.appendChild(el("h3", null, x.a.titre));
     if (!petite && x.a.resume) c.appendChild(el("p", null, phrase(x.a.resume)));
     if (x.a.suggestion) c.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
+    if (x.a.doute) c.appendChild(el("span", "badge doute", "⚠ Possiblement hors sujet selon l’IA"));
     if (x.a.rattrapage) c.appendChild(el("span", "badge rattr", "↺ Rattrapage" + (x.a.date ? " · publié le " + x.a.date : "")));
     if (marque(x)) c.appendChild(el("span", "ed-mark", marque(x)));
     return c;
@@ -1067,8 +1069,9 @@ function article(a, k, t, anc) {
   var c = el("article", "art" + (a.suggestion ? " sugg" : "")); c.id = anc + "-" + (k + 1); c.style.setProperty("--c", t.c);
   c.appendChild(el("span", "art-n", String(k + 1).padStart(2, "0")));
   var b = el("div", "art-b");
-  if (a.suggestion || a.rattrapage) {
+  if (a.suggestion || a.rattrapage || a.doute) {
     var bg = el("div", "badges");
+    if (a.doute) { var db = el("span", "badge doute", "⚠ Possiblement hors sujet selon l’IA"); db.title = "L’article n’a pas pu être lu : l’IA l’a jugé sur son seul titre. Il est conservé car il contient vos mots-clés."; bg.appendChild(db); }
     if (a.suggestion) bg.appendChild(el("span", "badge", "✦ Suggestion IA · hors mots-clés"));
     if (a.rattrapage) { var rb = el("span", "badge rattr", "↺ Rattrapage" + (a.date ? " · publié le " + a.date : "")); rb.title = "Article publié pendant l’indisponibilité de la source, récupéré à son retour"; bg.appendChild(rb); }
     b.appendChild(bg);
