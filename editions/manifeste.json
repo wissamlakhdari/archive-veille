@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-23-08h00",
+  "libelle": "lundi 23 novembre 2026, 8 h",
+  "total": 20,
+  "date": "2026-11-23",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 23,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "lundi",
+  "pdf": "pdf/2026-11-23-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 8
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 1
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 1
+   }
+  ],
+  "extrait": "Extrait de l'article : « Le président de la République, Abdelmadjid Tebboune, a présidé, ce dimanche, une réunion du Conseil des ministres consacrée à plusieurs dossiers, notamment les préparatifs de la Conférence africaine des…"
+ },
+ {
   "id": "2026-11-22-14h00",
   "libelle": "dimanche 22 novembre 2026, 14 h",
   "total": 1,
