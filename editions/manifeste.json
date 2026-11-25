@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-25-08h00",
+  "libelle": "mercredi 25 novembre 2026, 8 h",
+  "total": 21,
+  "date": "2026-11-25",
+  "heure": 8,
+  "minute": 0,
+  "horaire": "8 h",
+  "jour": 25,
+  "mois": "novembre",
+  "annee": 2026,
+  "jour_semaine": "mercredi",
+  "pdf": "pdf/2026-11-25-08h00.pdf",
+  "nb_sources": 42,
+  "themes": [
+   {
+    "nom": "Développement infrastructure de base Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Développement industriel Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Consommation énergétique Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Mobilité et changement d’usage Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Concurrence Algérie",
+    "n": 0
+   },
+   {
+    "nom": "Réglementaire, juridique et institutionnel Algérie",
+    "n": 1
+   },
+   {
+    "nom": "Transition Technologique",
+    "n": 0
+   },
+   {
+    "nom": "Développement de l’industrie énergétique Algérie",
+    "n": 3
+   },
+   {
+    "nom": "Transition énergétique Algérie",
+    "n": 2
+   },
+   {
+    "nom": "Indicateurs économique Algérie",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Marine International",
+    "n": 4
+   },
+   {
+    "nom": "Transition transport Aviation International",
+    "n": 0
+   },
+   {
+    "nom": "Transition mobilité terrestre International",
+    "n": 1
+   },
+   {
+    "nom": "Economie mondiale et géopolitique",
+    "n": 3
+   }
+  ],
+  "extrait": "Une journée d'étude dédiée à la planification et à la modernisation des infrastructures portuaires s'est tenue à Alger, dirigée par le ministre des Travaux publics et des Infrastructures de base, Abdelkader Djellaoui."
+ },
+ {
   "id": "2026-11-24-14h00",
   "libelle": "mardi 24 novembre 2026, 14 h",
   "total": 9,
